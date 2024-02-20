@@ -19,22 +19,22 @@ const StyledProjectCard = styled.div<{ $background: string }>`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5%;
-  color: ${COLORS.WHITE[100]};
   cursor: pointer;
+  background-size: 100%;
+  transition: background-size 0.5s ease;
 
   h3 {
     font-size: 43px;
     font-family: "Formula Condensed";
     transition: all 0.5s;
+    color: ${COLORS.WHITE[100]};
   }
 
   &:hover {
+    background-size: 120%;
     h3 {
       text-shadow: -5px -5px 0 #632dd748, 1px -1px 0 #2db8d77b,
         -1px 1px #2daad7d6, 1px 1px 0 #2dd785;
-      -webkit-transition: all 0.5s;
-      -moz-transition: all 0.5s;
-      -o-transition: all 0.5s;
       transition: all 0.5s;
     }
     box-shadow: inset 0 0 0 2000px rgba(255, 0, 150, 0.3);
@@ -48,8 +48,9 @@ const ParagraphContainer = styled.div`
   align-self: start;
   padding-left: 5%;
   padding-right: 5%;
-  background: #00000024;
+  background: #00000049;
   border-radius: 40px;
+  backdrop-filter: blur(20px);
 
   p {
     color: ${COLORS.WHITE[100]};

@@ -5,11 +5,16 @@ import Paragraph from "../../ui-components/Paragraph/Paragraph";
 import project1 from "../../assets/project-1.jpeg";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import puddle from "./puddle.svg";
-import { Logo } from "../../utils/icon";
+import { useEffect, useState } from "react";
+import { AnimatedContainer } from "../../utils/constants";
+import { COLORS } from "../../utils/palette";
+
+interface HomeProps {
+  darkMode: boolean;
+}
 
 const StyledHome = styled.div`
   width: 100%;
-  background-color: #f6f9fc;
 `;
 
 const Grid = styled.div`
@@ -24,13 +29,18 @@ const Title = styled.div`
   width: 50%;
   display: flex;
   text-align: left;
+  align-items: flex-end;
+  position: relative;
 `;
 
-const Item = styled.div`
-  border: 0.5px solid #d7e5f2;
+const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
+  border: ${(props) =>
+    props.$darkmode
+      ? `0.3px solid ${COLORS.DARKSLATE[100]}`
+      : `0.3px solid ${COLORS.SKY[100]}`};
   padding-left: 30px;
   padding-right: 30px;
-  /* gap: 30px; */
+  position: relative;
   font-size: 30px;
   position: relative;
   display: flex;
@@ -53,13 +63,7 @@ const Item = styled.div`
     background-image: url(${puddle});
   }
 
-  &.zebra-item {
-    background-image: url("https://img.freepik.com/premium-vector/zebra-print-background_125540-2347.jpg");
-    background-size: cover;
-    background-position: center;
-  }
-
-  &.new {
+  &.double-column {
     grid-row: span 2;
   }
 `;
@@ -72,7 +76,7 @@ const CustomItem = styled.div`
   grid-row-gap: 0px;
 `;
 
-const Home = () => {
+const Home = ({ darkMode }: HomeProps): JSX.Element => {
   const projectData = [
     {
       title: "NOM DU PROJET",
@@ -90,61 +94,91 @@ const Home = () => {
       image: project1,
     },
   ];
+
+  const [isLoaded, setIsLoaded] = useState(false);
+  const styledLoaded = isLoaded ? "animate" : "";
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
   return (
     <StyledHome>
       <Grid>
-        <Item></Item>
-        <Item className={`item name-item`}>
-          <Logo />
-          <p>
-            <strong>Robin Godart</strong>
-          </p>
-        </Item>
-        <Item className={`item setting-item`}>
-          <p>FR -- EN</p>
-          <p>LIGHT</p>
-        </Item>
-        <Item></Item>
-        <Item></Item>
-        <Item>
+        <Item
+          className={`item name-item ${styledLoaded}`}
+          $darkmode={darkMode}
+        />
+        <Item className={`item name-item`} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode}>
           <Title>
             <h1>
-              DEVELOPPEUR <strong>FRONT - END</strong>
+              DÉVELOPPEUR <strong>FRONT - END</strong>
+            </h1>
+            <h1>
+              <strong>FLINGUÉ</strong>
             </h1>
           </Title>
         </Item>
-        <Item className={`item puddle-item`}></Item>
-        <Item></Item>
-        <Item></Item>
-        <Item className={`item puddle-item`}></Item>
-        <Item className={`item contact-item`}>
+        <Item
+          className={`item puddle-item ${styledLoaded}`}
+          $darkmode={darkMode}
+        />
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item
+          className={`item puddle-item ${styledLoaded}`}
+          $darkmode={darkMode}
+        />
+        <Item
+          className={`item contact-item ${styledLoaded}`}
+          $darkmode={darkMode}
+        >
           <Subtitle text="CONTACT" />
-          <Button title="Me contacter" />
+          <Button title="Me contacter" darkMode={darkMode} />
         </Item>
-        <Item></Item>
-        <Item></Item>
-        <Item>
-          <Subtitle text="A PROPOS" />
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode}>
+          <Subtitle text="À PROPOS" />
           <Paragraph
             text={
               "Lorem ipsum dolor sit amet consectetur. Amet nisi tempor faucibus viverra viverra facilisi. Cursus risus consequat tincidunt nisi urna vestibulum.Amet nisi tempor faucibus viverra viverra facilisi."
             }
           />
-          <Button title="En savoir plus" />
+          <Button title="En savoir plus" darkMode={darkMode} />
         </Item>
-        <Item>
+        <Item className={styledLoaded} $darkmode={darkMode}>
           <Subtitle text="SOCIAL" />
-          <Button title="GitHub" />
-          <Button title="Linkedin" />
+          <Button
+            title="GitHub"
+            href="https://github.com/RobinGdt"
+            darkMode={darkMode}
+          />
+          <Button
+            title="Linkedin"
+            href="https://www.linkedin.com/in/robin-godart-4847351b9/"
+            darkMode={darkMode}
+          />
         </Item>
-        <Item>1</Item>
+        <Item className={styledLoaded} $darkmode={darkMode} />
       </Grid>
       <CustomItem>
-        <Item></Item>
-        <Item>
-          <Subtitle text="PROJETS" />
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode}>
+          <Subtitle text="EXPERIENCE PRO" />
+          <Button
+            title="Alvie"
+            label="Développeur full stack"
+            darkMode={darkMode}
+          />
         </Item>
-        <Item className={`item new`}>
+        <Item
+          className={`item double-column ${styledLoaded}`}
+          $darkmode={darkMode}
+        >
           <Subtitle text="PROJETS" />
           {projectData.map((item, index) => (
             <ProjectCard
@@ -155,24 +189,18 @@ const Home = () => {
             />
           ))}
         </Item>
-        <Item className={`item new`}>4</Item>
-        <Item>1</Item>
-        <Item>
+        <Item
+          className={`item double-column ${styledLoaded}`}
+          $darkmode={darkMode}
+        />
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode}>
           <div className="">
-            <Subtitle text="PROJETS" />
-            <Button title="M'envoyer un mail" />
-            <Button title="M'appeler" />
+            <Subtitle text="CONTACT" />
+            <Button title="M'envoyer un mail" darkMode={darkMode} />
+            <Button title="M'appeler" darkMode={darkMode} />
           </div>
         </Item>
-        <Item>1</Item>
-        <Item className={`item name-item`}>
-          <Logo />
-          <p>
-            <strong>Robin Godart</strong>
-          </p>
-        </Item>
-        <Item>3</Item>
-        <Item>4</Item>
       </CustomItem>
     </StyledHome>
   );

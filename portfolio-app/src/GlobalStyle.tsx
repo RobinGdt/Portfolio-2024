@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 
 const styled = { createGlobalStyle };
 
-const GlobalStyles = styled.createGlobalStyle`
+const GlobalStyles = styled.createGlobalStyle<{ darkMode?: boolean }>`
   :root {
     --white-100: ${COLORS.WHITE[100]};
     --white-50: ${COLORS.WHITE[50]};
@@ -13,8 +13,7 @@ const GlobalStyles = styled.createGlobalStyle`
     --disabled-100: ${COLORS.DISABLED[100]};
     --disabled-10: ${COLORS.DISABLED[10]};
     --sky-100: ${COLORS.SKY[100]};
-    --sky-50: ${COLORS.SKY[50]};
-    --sky-25: ${COLORS.SKY[25]};
+    --bluish-100: ${COLORS.BLUISH[100]};
     --night-100: ${COLORS.NIGHT[100]};
     --night-50: ${COLORS.NIGHT[50]};
     --night-25: ${COLORS.NIGHT[25]};
@@ -48,15 +47,23 @@ const GlobalStyles = styled.createGlobalStyle`
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    background-color: ${(props) =>
+      props.darkMode ? "#061423" : COLORS.BLUISH[100]};
   }
   p,
   h1,
-  h2,
   h3,
   h4,
   h5,
+  label,
   h6 {
     overflow-wrap: break-word;
+    color: ${(props) =>
+      props.darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]};
+  }
+  h2 {
+    color: ${(props) =>
+      props.darkMode ? COLORS.PEACH[100] : COLORS.TANGERINE[100]};
   }
   #root {
     /* isolation: isolate; */

@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import { COLORS } from "../../utils/palette";
 
 interface ParagraphProps {
   text: string;
+  strong?: boolean;
 }
 
-const StyledParagraph = styled.p`
-  color: ${COLORS.NIGHT[100]};
-`;
+const StyledParagraph = styled.p``;
 
-const Paragraph = ({ text }: ParagraphProps): JSX.Element => {
-  return <StyledParagraph>{text}</StyledParagraph>;
+const Paragraph = ({ text, strong }: ParagraphProps): JSX.Element => {
+  return (
+    <StyledParagraph>{strong ? <strong>{text}</strong> : text}</StyledParagraph>
+  );
 };
 
 export default Paragraph;
