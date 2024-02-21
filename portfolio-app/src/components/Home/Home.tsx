@@ -8,6 +8,7 @@ import puddle from "./puddle.svg";
 import { useEffect, useState } from "react";
 import { AnimatedContainer } from "../../utils/constants";
 import { COLORS } from "../../utils/palette";
+import { useTranslation } from "react-i18next";
 
 interface HomeProps {
   darkMode: boolean;
@@ -77,20 +78,21 @@ const CustomItem = styled.div`
 `;
 
 const Home = ({ darkMode }: HomeProps): JSX.Element => {
+  const { t } = useTranslation();
   const projectData = [
     {
-      title: "NOM DU PROJET",
-      projet: "projet personnel",
+      title: "DINE",
+      projet: t("projects.label.perso"),
       image: project1,
     },
     {
-      title: "NOM DU PROJET",
-      projet: "projet personnel",
+      title: "HYGO TOOL",
+      projet: t("projects.label.pro"),
       image: project1,
     },
     {
-      title: "NOM DU PROJET",
-      projet: "projet personnel",
+      title: "GESTION PRO PLANNER",
+      projet: t("projects.label.perso"),
       image: project1,
     },
   ];
@@ -101,6 +103,7 @@ const Home = ({ darkMode }: HomeProps): JSX.Element => {
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
   return (
     <StyledHome>
       <Grid>
@@ -115,10 +118,7 @@ const Home = ({ darkMode }: HomeProps): JSX.Element => {
         <Item className={styledLoaded} $darkmode={darkMode}>
           <Title>
             <h1>
-              DÉVELOPPEUR <strong>FRONT - END</strong>
-            </h1>
-            <h1>
-              <strong>FLINGUÉ</strong>
+              {t("title.part1")} <strong>{t("title.part2")}</strong>
             </h1>
           </Title>
         </Item>
@@ -142,13 +142,9 @@ const Home = ({ darkMode }: HomeProps): JSX.Element => {
         <Item className={styledLoaded} $darkmode={darkMode} />
         <Item className={styledLoaded} $darkmode={darkMode} />
         <Item className={styledLoaded} $darkmode={darkMode}>
-          <Subtitle text="À PROPOS" />
-          <Paragraph
-            text={
-              "Lorem ipsum dolor sit amet consectetur. Amet nisi tempor faucibus viverra viverra facilisi. Cursus risus consequat tincidunt nisi urna vestibulum.Amet nisi tempor faucibus viverra viverra facilisi."
-            }
-          />
-          <Button title="En savoir plus" darkMode={darkMode} />
+          <Subtitle text={t("about.about")} />
+          <Paragraph text={t("about.description")} />
+          <Button title={t("about.learn")} darkMode={darkMode} />
         </Item>
         <Item className={styledLoaded} $darkmode={darkMode}>
           <Subtitle text="SOCIAL" />
@@ -168,10 +164,10 @@ const Home = ({ darkMode }: HomeProps): JSX.Element => {
       <CustomItem>
         <Item className={styledLoaded} $darkmode={darkMode} />
         <Item className={styledLoaded} $darkmode={darkMode}>
-          <Subtitle text="EXPERIENCE PRO" />
+          <Subtitle text={t("experience.title")} />
           <Button
             title="Alvie"
-            label="Développeur full stack"
+            label={t("experience.label")}
             darkMode={darkMode}
           />
         </Item>
@@ -179,7 +175,7 @@ const Home = ({ darkMode }: HomeProps): JSX.Element => {
           className={`item double-column ${styledLoaded}`}
           $darkmode={darkMode}
         >
-          <Subtitle text="PROJETS" />
+          <Subtitle text={t("projects.title")} />
           {projectData.map((item, index) => (
             <ProjectCard
               background={item.image}
@@ -197,8 +193,8 @@ const Home = ({ darkMode }: HomeProps): JSX.Element => {
         <Item className={styledLoaded} $darkmode={darkMode}>
           <div className="">
             <Subtitle text="CONTACT" />
-            <Button title="M'envoyer un mail" darkMode={darkMode} />
-            <Button title="M'appeler" darkMode={darkMode} />
+            <Button title={t("contact.email")} darkMode={darkMode} />
+            <Button title={t("contact.phone")} darkMode={darkMode} />
           </div>
         </Item>
       </CustomItem>

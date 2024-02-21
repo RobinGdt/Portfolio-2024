@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { COLORS } from "../../utils/palette";
+import { useEffect, useState } from "react";
 
 interface SwitchBttonProps {
   toggled?: any;
   onChange?: any;
+  darkMode?: boolean;
   id?: any;
 }
 
@@ -19,7 +21,7 @@ const SwitchInput = styled.input`
   visibility: hidden;
 `;
 
-const SwitchLabel = styled.label`
+const SwitchLabel = styled.label<{ $darkmode?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,7 +29,10 @@ const SwitchLabel = styled.label`
   width: 50px;
   height: 25px;
   border-radius: 50px;
-  border: 1px solid ${COLORS.SKY[100]};
+  border: ${(props) =>
+    props.$darkmode
+      ? `1px solid ${COLORS.DARKSLATE[100]}`
+      : `1px solid ${COLORS.SKY[100]}`};
   position: relative;
   transition: background-color 0.2s;
 `;
@@ -56,17 +61,29 @@ const SwitchButton = ({
   id,
   toggled,
   onChange,
+  darkMode,
 }: SwitchBttonProps): JSX.Element => {
+  const [isChecked, setIsChecked] = useState(toggled);
+
+  useEffect(() => {
+    setIsChecked(toggled);
+  }, [toggled]);
+
+  const handleToggleChange = () => {
+    setIsChecked(!isChecked);
+    onChange && onChange(!isChecked);
+  };
+
   return (
     <Wrapper>
       <SwitchInput
         className="switch-checkbox"
         id={id}
         type="checkbox"
-        checked={toggled}
-        onChange={onChange}
+        checked={isChecked}
+        onChange={handleToggleChange}
       />
-      <SwitchLabel className="switch-label" htmlFor={id}>
+      <SwitchLabel className="switch-label" htmlFor={id} $darkmode={darkMode}>
         <StyledSwitchButton className="switch-button" />
       </SwitchLabel>
     </Wrapper>

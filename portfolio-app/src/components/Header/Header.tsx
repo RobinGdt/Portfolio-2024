@@ -15,7 +15,7 @@ interface HeaderProps {
 const SyledHeader = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 3fr 5.4fr 4fr 1fr;
+  grid-template-columns: 1fr 4.2fr 4.2fr 4fr 1fr;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -76,7 +76,7 @@ const Header = ({
       </Item>
       <Item className={styledLoaded} $darkmode={darkMode} />
       <Item className={styledLoaded} $darkmode={darkMode}>
-        <SwitchLanguage />
+        <SwitchLanguage darkMode={darkMode} />
         {darkMode ? (
           <SvgContainer onClick={onClickDarkMode}>
             <Moon fill={fill} />

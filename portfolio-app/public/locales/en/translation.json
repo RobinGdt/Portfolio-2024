@@ -1,0 +1,26 @@
+{
+  "title": {
+    "part1": "FRONT-END",
+    "part2": "DEVELOPER"
+  },
+  "about": {
+    "about": "About",
+    "description": "Hello, I am a French developer, living between Lyon and Paris. Passionate about web and app development, I love exploring new web technologies, and I am always eager to acquire new skills.",
+    "learn": "Learn more"
+  },
+  "experience": {
+    "title": "PROFESSIONAL EXPERIENCE",
+    "label": "Full Stack developper"
+  },
+  "projects": {
+    "title": "PROJECTS",
+    "label": {
+      "perso": "Personal project",
+      "pro": "professional project"
+    }
+  },
+  "contact": {
+    "email": "Send an email",
+    "phone": "Call"
+  }
+}

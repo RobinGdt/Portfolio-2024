@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
@@ -7,11 +7,21 @@ import Typography from "./utils/Typography";
 import { COLORS } from "./utils/palette";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import i18n from "./i18n";
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("darkMode") === "true";
   });
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("selectedLanguage");
+    if (storedLanguage) {
+      i18n.changeLanguage(storedLanguage);
+    }
+
+    return () => {};
+  }, []);
 
   const toggleDarkMode = () => {
     setDarkMode((prevDarkMode) => {
