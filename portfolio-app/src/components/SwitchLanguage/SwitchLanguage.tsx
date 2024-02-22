@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import SwitchButton from "../SwitchButton/SwitchButton";
-import Paragraph from "../../ui-components/Paragraph/Paragraph";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import Span from "../../ui-components/Span/Span";
 
 interface SwitchLanguageProps {
   darkMode?: boolean;
@@ -26,14 +26,14 @@ const SwitchLanguage = ({ darkMode }: SwitchLanguageProps): JSX.Element => {
 
   return (
     <StyledSwitchLanguage>
-      <Paragraph text="FR" strong={!isEnglish} />
+      <Span text="FR" strong={!isEnglish} />
       <SwitchButton
         id="test-switch"
         toggled={isEnglish}
         onChange={() => handleChangeLanguage(isEnglish ? "fr" : "en")}
         darkMode={darkMode}
       />
-      <Paragraph text="EN" strong={isEnglish} />
+      <Span text="EN" strong={isEnglish} />
     </StyledSwitchLanguage>
   );
 };

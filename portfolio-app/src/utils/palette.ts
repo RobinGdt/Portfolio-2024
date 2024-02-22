@@ -15,7 +15,7 @@ export const COLORS = {
     100: "#f69365",
   },
   DARKSLATE: {
-    100: "#473d8b4e",
+    100: "#09223b",
   },
   BLUISH: {
     100: "#f6f9fc",

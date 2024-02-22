@@ -4,13 +4,18 @@ import "./index.css";
 import App from "./App";
 import "./i18n";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import ScrollToTop from "./utils/ScrollToTop";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter basename="/Home">
+      <ScrollToTop />
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

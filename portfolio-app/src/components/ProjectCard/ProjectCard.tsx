@@ -1,16 +1,20 @@
 import styled from "styled-components";
 import Paragraph from "../../ui-components/Paragraph/Paragraph";
 import { COLORS } from "../../utils/palette";
+import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
   title: string;
   background: string;
   projet: string;
+  to: string;
+  onClick?: () => void;
 }
 
 const StyledProjectCard = styled.div<{ $background: string }>`
   width: 95%;
   height: 150px;
+  min-width: 500px;
   background-image: url(${(props) => props.$background});
   background-size: cover;
   background-position: center;
@@ -63,14 +67,18 @@ const ProjectCard = ({
   title,
   background,
   projet,
+  to,
+  onClick,
 }: ProjectCardProps): JSX.Element => {
   return (
-    <StyledProjectCard $background={background}>
-      <h3>{title}</h3>
-      <ParagraphContainer>
-        <Paragraph text={projet} />
-      </ParagraphContainer>
-    </StyledProjectCard>
+    <Link to={to} onClick={onClick}>
+      <StyledProjectCard $background={background}>
+        <h3>{title}</h3>
+        <ParagraphContainer>
+          <Paragraph text={projet} />
+        </ParagraphContainer>
+      </StyledProjectCard>
+    </Link>
   );
 };
 

@@ -11,9 +11,8 @@ export const AnimatedContainer = styled.div`
     left: 0;
     height: 100%;
     background: ${COLORS.TANGERINE[100]};
-    animation: ${fillAnimation} 1s cubic-bezier(1, 0, 0.5, 0) forwards;
+    animation: ${fillAnimation} 1s cubic-bezier(0.83, 0, 0.17, 1) forwards;
     width: 100%;
     z-index: 1;
-    /* animation-delay: 300ms; */
   }
 `;

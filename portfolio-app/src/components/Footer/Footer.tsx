@@ -3,7 +3,7 @@ import { AnimatedContainer } from "../../utils/constants";
 import { COLORS } from "../../utils/palette";
 import { useEffect, useState } from "react";
 import { Logo } from "../../utils/icon";
-import Paragraph from "../../ui-components/Paragraph/Paragraph";
+import Span from "../../ui-components/Span/Span";
 
 interface FooterProps {
   darkMode: boolean;
@@ -23,11 +23,7 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
     props.$darkmode
       ? `0.3px solid ${COLORS.DARKSLATE[100]}`
       : `0.3px solid ${COLORS.SKY[100]}`};
-  border-bottom: none;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 15px 40px 15px 40px;
   position: relative;
   font-size: 30px;
   display: flex;
@@ -37,10 +33,39 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
 `;
 
 const LogoWrapper = styled.div`
-  width: 100%;
+  width: 65%;
   display: flex;
   align-items: center;
   gap: 5%;
+  cursor: pointer;
+
+  span {
+    cursor: pointer;
+  }
+
+  &:hover {
+    svg {
+      rect {
+        fill: ${COLORS.PEACH[100]};
+        transition: fill 300ms ease-out;
+      }
+    }
+    span {
+      color: ${COLORS.PEACH[100]};
+      transition: color 300ms ease-out;
+    }
+  }
+
+  &:not(:hover) {
+    svg {
+      rect {
+        transition: fill 300ms ease-out;
+      }
+    }
+    span {
+      transition: color 300ms ease-out;
+    }
+  }
 `;
 
 const YearWrapper = styled.div`
@@ -63,17 +88,20 @@ const Footer = ({ darkMode }: FooterProps): JSX.Element => {
       <Item className={styledLoaded} $darkmode={darkMode} />
       <Item className={styledLoaded} $darkmode={darkMode}>
         <LogoWrapper>
-          <Logo fill={darkMode ? COLORS.SKY[100] : COLORS.NIGHT[100]} />
-          <Paragraph text="Robin Godart" strong={true} />
+          <Logo
+            fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]}
+            stroke={darkMode ? COLORS.NIGHT[100] : COLORS.WHITE[100]}
+          />
+          <Span text="Robin Godart" strong={true} />
         </LogoWrapper>
       </Item>
       <Item className={styledLoaded} $darkmode={darkMode}>
-        <Paragraph text="A propos" strong={true} />
-        <Paragraph text="Mentions légales" strong={true} />
+        <Span text="A propos" strong={true} />
+        <Span text="Mentions légales" strong={true} />
       </Item>
       <Item className={styledLoaded} $darkmode={darkMode}>
         <YearWrapper>
-          <Paragraph text="2024" strong={true} />
+          <Span text="2024" strong={true} />
         </YearWrapper>
       </Item>
       <Item className={styledLoaded} $darkmode={darkMode} />

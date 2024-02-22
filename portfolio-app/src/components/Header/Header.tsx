@@ -2,14 +2,15 @@ import styled from "styled-components";
 import { COLORS } from "../../utils/palette";
 import { AnimatedContainer } from "../../utils/constants";
 import { Logo, Moon, Sun } from "../../utils/icon";
-import Paragraph from "../../ui-components/Paragraph/Paragraph";
 import SwitchLanguage from "../SwitchLanguage/SwitchLanguage";
-import { useEffect, useState } from "react";
+import Span from "../../ui-components/Span/Span";
 
 interface HeaderProps {
   darkMode?: boolean;
-  onClickDarkMode: () => void;
+  isLoaded: boolean;
   fill: any;
+  onClickDarkMode: () => void;
+  onClickLoading: () => void;
 }
 
 const SyledHeader = styled.div`
@@ -27,8 +28,7 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
       ? `0.3px solid ${COLORS.DARKSLATE[100]}`
       : `0.3px solid ${COLORS.SKY[100]}`};
   border-bottom: none;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 15px 40px 15px 40px;
   position: relative;
   font-size: 30px;
   display: flex;
@@ -38,10 +38,35 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
 `;
 
 const LogoWrapper = styled.div`
-  width: 100%;
+  width: 55%;
   display: flex;
   align-items: center;
   gap: 5%;
+  cursor: pointer;
+
+  &:hover {
+    svg {
+      rect {
+        fill: ${COLORS.PEACH[100]};
+        transition: fill 300ms ease-out;
+      }
+    }
+    span {
+      color: ${COLORS.PEACH[100]};
+      transition: color 300ms ease-out;
+    }
+  }
+
+  &:not(:hover) {
+    svg {
+      rect {
+        transition: fill 300ms ease-out;
+      }
+    }
+    span {
+      transition: color 300ms ease-out;
+    }
+  }
 `;
 
 const SvgContainer = styled.div`
@@ -56,33 +81,44 @@ const SvgContainer = styled.div`
 `;
 const Header = ({
   darkMode,
-  onClickDarkMode,
   fill,
+  isLoaded,
+  onClickDarkMode,
+  onClickLoading,
 }: HeaderProps): JSX.Element => {
-  const [isLoaded, setIsLoaded] = useState(false);
   const styledLoaded = isLoaded ? "animate" : "";
 
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
   return (
     <SyledHeader>
       <Item className={styledLoaded} $darkmode={darkMode} />
       <Item className={styledLoaded} $darkmode={darkMode}>
         <LogoWrapper>
-          <Logo fill={darkMode ? COLORS.SKY[100] : COLORS.NIGHT[100]} />
-          <Paragraph text="Robin Godart" strong={true} />
+          <Logo
+            fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]}
+            stroke={darkMode ? COLORS.NIGHT[100] : COLORS.WHITE[100]}
+          />
+          <Span text="Robin Godart" strong={true} />
         </LogoWrapper>
       </Item>
       <Item className={styledLoaded} $darkmode={darkMode} />
       <Item className={styledLoaded} $darkmode={darkMode}>
         <SwitchLanguage darkMode={darkMode} />
         {darkMode ? (
-          <SvgContainer onClick={onClickDarkMode}>
+          <SvgContainer
+            onClick={() => {
+              onClickDarkMode();
+              onClickLoading();
+            }}
+          >
             <Moon fill={fill} />
           </SvgContainer>
         ) : (
-          <SvgContainer onClick={onClickDarkMode}>
+          <SvgContainer
+            onClick={() => {
+              onClickDarkMode();
+              onClickLoading();
+            }}
+          >
             <Sun fill={fill} />
           </SvgContainer>
         )}

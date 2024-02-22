@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { COLORS } from "../../utils/palette";
 import { Arrow } from "../../utils/icon";
-import Paragraph from "../../ui-components/Paragraph/Paragraph";
 import { moveArrow, reverseArrow } from "../../utils/keyframes";
 import { Link } from "react-router-dom";
+import Span from "../../ui-components/Span/Span";
 
 interface ButtonProps {
   title: string;
@@ -18,10 +18,7 @@ const StyledButtonWithLabel = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
-
-  a {
-    text-decoration: none;
-  }
+  width: 100%;
 `;
 
 const StyledButton = styled.button<{ $darkmode?: boolean }>`
@@ -38,7 +35,6 @@ const StyledButton = styled.button<{ $darkmode?: boolean }>`
   padding-left: 5%;
   display: flex;
   align-items: center;
-  margin-bottom: 43px;
   transition: border 500ms ease-out;
   cursor: pointer;
 
@@ -54,7 +50,7 @@ const StyledButton = styled.button<{ $darkmode?: boolean }>`
   }
 
   &:hover {
-    border: 1px solid ${COLORS.TANGERINE[100]};
+    border: 0.5px solid ${COLORS.TANGERINE[100]};
 
     svg {
       animation: ${moveArrow} 400ms linear;
@@ -93,8 +89,8 @@ const Button = ({
       {label && <Label>{label}</Label>}
       {to ? (
         <Link to={to}>
-          <StyledButton $darkmode={darkMode}>
-            <Paragraph text={title} />
+          <StyledButton $darkmode={darkMode} onClick={onClick}>
+            <Span text={title} />
             <Arrow className="arrow" />
           </StyledButton>
         </Link>
@@ -103,13 +99,13 @@ const Button = ({
           {href ? (
             <a href={href} target="_blank" rel="noreferrer noopener">
               <StyledButton onClick={onClick} $darkmode={darkMode}>
-                <Paragraph text={title} />
+                <Span text={title} />
                 <Arrow className="arrow" />
               </StyledButton>
             </a>
           ) : (
             <StyledButton onClick={onClick} $darkmode={darkMode}>
-              <Paragraph text={title} />
+              <Span text={title} />
               <Arrow className="arrow" />
             </StyledButton>
           )}
