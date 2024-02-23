@@ -3,11 +3,15 @@ import Button from "../Button/Button";
 import Subtitle from "../../ui-components/Subtitle/Subtitle";
 import Paragraph from "../../ui-components/Paragraph/Paragraph";
 import project1 from "../../assets/project-1.jpeg";
+import dineImage from "../../assets/dine-image.png";
+import photosnapImage from "../../assets/photosnap-image.jpg";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import puddle from "./puddle.svg";
 import { AnimatedContainer } from "../../utils/constants";
 import { COLORS } from "../../utils/palette";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import FormContact from "../FormContact/FormContact";
 
 interface HomeProps {
   darkMode: boolean;
@@ -80,6 +84,10 @@ const Home = ({
   onClickLoading,
 }: HomeProps): JSX.Element => {
   const { t } = useTranslation();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const toggleModal = () => {
+    setModalIsOpen(!modalIsOpen);
+  };
 
   const styledLoaded = isLoaded ? "animate" : "";
 
@@ -87,23 +95,22 @@ const Home = ({
     {
       title: "DINE",
       projet: t("projects.label.perso"),
-      image: project1,
+      image: dineImage,
       to: "/Dine",
+    },
+    {
+      title: "PHOTOSNAP",
+      projet: t("projects.label.perso"),
+      image: photosnapImage,
+      to: "/HygoTools",
     },
     {
       title: "HYGO TOOL",
       projet: t("projects.label.pro"),
       image: project1,
-      to: "/HygoTools",
-    },
-    {
-      title: "GESTION PRO PLANNER",
-      projet: t("projects.label.perso"),
-      image: project1,
       to: "/gpp",
     },
   ];
-
   return (
     <StyledHome>
       <section>
@@ -142,7 +149,7 @@ const Home = ({
             <Button
               title={t("about.learn")}
               darkMode={darkMode}
-              to="/Dine"
+              to="/about"
               onClick={onClickLoading}
             />
           </Item>
@@ -171,6 +178,8 @@ const Home = ({
               title="Alvie"
               label={t("experience.label")}
               darkMode={darkMode}
+              to="/about"
+              onClick={onClickLoading}
             />
           </Item>
           <Item
@@ -196,11 +205,22 @@ const Home = ({
           <Item className={styledLoaded} $darkmode={darkMode} />
           <Item className={styledLoaded} $darkmode={darkMode} id="contact-item">
             <Subtitle text="CONTACT" />
-            <Button title={t("contact.email")} darkMode={darkMode} />
-            <Button title={t("contact.phone")} darkMode={darkMode} />
+            <Button
+              title={t("contact.email")}
+              darkMode={darkMode}
+              onClick={toggleModal}
+            />
+            <Button
+              title={t("contact.phone")}
+              darkMode={darkMode}
+              href="tel: +33782255092"
+            />
           </Item>
         </CustomItem>
       </section>
+      {modalIsOpen && (
+        <FormContact toggleModal={toggleModal} darkMode={darkMode} />
+      )}
     </StyledHome>
   );
 };

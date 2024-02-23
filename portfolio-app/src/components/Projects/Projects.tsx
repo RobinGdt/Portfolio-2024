@@ -17,6 +17,7 @@ interface ProjectsProps {
   firstProject: JSX.Element;
   secondProject: JSX.Element;
   src: string;
+  href?: string;
 }
 
 const StyledProjects = styled.div`
@@ -69,6 +70,7 @@ const ProjectsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 const ItemContext = styled(ItemDetail)``;
@@ -94,7 +96,6 @@ const ParagraphContainer = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 60%;
 `;
 
 const Projects = ({
@@ -107,6 +108,7 @@ const Projects = ({
   stack,
   contextDetail,
   src,
+  href,
   firstProject,
   secondProject,
 }: ProjectsProps): JSX.Element => {
@@ -137,7 +139,7 @@ const Projects = ({
         <ItemDetail $darkmode={darkMode} className={styledLoaded}>
           <Subtitle text="DETAILS" />
           <Paragraph text={detailText} />
-          <Button title="Visiter le site" darkMode={darkMode} />
+          <Button title="Visiter le site" darkMode={darkMode} href={href} />
         </ItemDetail>
         <ItemDetail $darkmode={darkMode} className={styledLoaded}>
           <Subtitle text="STACK" />
@@ -158,6 +160,7 @@ const Projects = ({
         </ItemContext>
         <ItemContext $darkmode={darkMode} className={styledLoaded} />
         <ItemContext $darkmode={darkMode} className={styledLoaded} />
+        {/*------------------ OTHER PROJECTS ------------------*/}
         <ItemContext $darkmode={darkMode} className={styledLoaded}>
           <Subtitle text="AUTRES PROJETS" />
           <ProjectsWrapper>

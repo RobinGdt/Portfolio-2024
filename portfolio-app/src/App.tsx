@@ -11,8 +11,13 @@ import i18n from "./i18n";
 import { useLoadingState } from "./customHooks/useLoadingEffect";
 import Projects from "./components/Projects/Projects";
 import projet1 from "./assets/project-1.jpeg";
+import dineImage from "./assets/dine-image.png";
+import photosnapImage from "./assets/photosnap-image.jpg";
+import dinePreview from "./assets/dine-preview.jpg";
+import photosnapPreview from "./assets/photosnap-preview.jpg";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
+import About from "./components/About/About";
 
 function App() {
   const { isLoaded, resetLoadingState } = useLoadingState();
@@ -37,6 +42,10 @@ function App() {
       return newDarkMode;
     });
   };
+
+  window.addEventListener("popstate", () => {
+    resetLoadingState();
+  });
   return (
     <>
       <GlobalStyle darkMode={darkMode} />
@@ -60,12 +69,85 @@ function App() {
           }
         />
         <Route
+          path="/about"
+          element={<About darkMode={darkMode} isLoaded={isLoaded} />}
+        />
+        <Route
           path="/Dine"
           element={
             <Projects
               darkMode={darkMode}
               isLoaded={isLoaded}
               title="Dine"
+              href="http://robingdt.github.io/Dine"
+              background={dineImage}
+              projet={t("projects.label.perso")}
+              detailText={t("projects.dine.detail")}
+              contextDetail={t("projects.dine.context")}
+              stack="React / Typescript"
+              src={dinePreview}
+              firstProject={
+                <ProjectCard
+                  background={projet1}
+                  title={"HygoTools"}
+                  projet={t("projects.label.pro")}
+                  to={"/HygoTools"}
+                  onClick={resetLoadingState}
+                />
+              }
+              secondProject={
+                <ProjectCard
+                  background={photosnapImage}
+                  title={"Photosnap"}
+                  projet={t("projects.label.perso")}
+                  to={"/Photosnap"}
+                  onClick={resetLoadingState}
+                />
+              }
+            />
+          }
+        />
+        <Route
+          path="/Photosnap"
+          element={
+            <Projects
+              darkMode={darkMode}
+              isLoaded={isLoaded}
+              title="Photosnap"
+              background={photosnapImage}
+              projet={t("projects.label.perso")}
+              detailText="FoodFinder vous permet de trouver des recettes en fonction des ingrédients que vous avez dans votre frigo."
+              stack="React"
+              contextDetail="Dine vous permet de trouver des recettes en fonction des ingrédients que vous avez dans votre frigo."
+              src={photosnapPreview}
+              firstProject={
+                <ProjectCard
+                  background={projet1}
+                  title={"HygoTools"}
+                  projet={t("projects.label.pro")}
+                  to={"/HygoTools"}
+                  onClick={resetLoadingState}
+                />
+              }
+              secondProject={
+                <ProjectCard
+                  background={dineImage}
+                  title={"Dine"}
+                  projet={t("projects.label.perso")}
+                  to={"/Dine"}
+                  onClick={resetLoadingState}
+                />
+              }
+            />
+          }
+        />
+        <Route
+          path="/HygoTools"
+          element={
+            <Projects
+              darkMode={darkMode}
+              isLoaded={isLoaded}
+              title="HygoTools"
               background={projet1}
               projet={t("projects.label.perso")}
               detailText="FoodFinder vous permet de trouver des recettes en fonction des ingrédients que vous avez dans votre frigo."
@@ -74,18 +156,18 @@ function App() {
               src={projet1}
               firstProject={
                 <ProjectCard
-                  background={projet1}
-                  title={"HygoTools"}
-                  projet={"pro"}
-                  to={"/Dine"}
+                  background={photosnapImage}
+                  title={"Photosnap"}
+                  projet={t("projects.label.pro")}
+                  to={"/Photosnap"}
                   onClick={resetLoadingState}
                 />
               }
               secondProject={
                 <ProjectCard
-                  background={projet1}
-                  title={"Gestion Pro Planner"}
-                  projet={"perso"}
+                  background={dineImage}
+                  title={"Dine"}
+                  projet={t("projects.label.perso")}
                   to={"/Dine"}
                   onClick={resetLoadingState}
                 />

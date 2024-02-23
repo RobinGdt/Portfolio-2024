@@ -31,6 +31,33 @@ export const fillAnimation = keyframes`
 }
 `;
 
+export const buttonAnimation = keyframes`
+0%, 100% {
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+70% {
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+80% {
+  -moz-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  -webkit-transform: scale(1.04);
+  transform: scale(1.04);
+}
+90% {
+  -moz-transform: scale(0.96);
+  -ms-transform: scale(0.96);
+  -webkit-transform: scale(0.96);
+  transform: scale(0.96);
+}
+`;
+
 export const doubleFillAnimation = keyframes`
 0%{
   width:0%;

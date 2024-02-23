@@ -4,6 +4,9 @@ import { COLORS } from "../../utils/palette";
 import { useEffect, useState } from "react";
 import { Logo } from "../../utils/icon";
 import Span from "../../ui-components/Span/Span";
+import { useTranslation } from "react-i18next";
+// import { Link } from "react-router-dom";
+import Anchor from "../../ui-components/Anchor/Anchor";
 
 interface FooterProps {
   darkMode: boolean;
@@ -14,8 +17,6 @@ const StyledFooter = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr 4.4fr 4fr 1fr;
   grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
 `;
 
 const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
@@ -32,7 +33,7 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   align-items: center;
 `;
 
-const LogoWrapper = styled.div`
+const LogoWrapper = styled.div<{ $darkmode?: boolean }>`
   width: 65%;
   display: flex;
   align-items: center;
@@ -41,6 +42,11 @@ const LogoWrapper = styled.div`
 
   span {
     cursor: pointer;
+  }
+
+  &.about {
+    color: ${(props) =>
+      props.$darkmode ? COLORS.TANGERINE[100] : COLORS.PEACH[100]};
   }
 
   &:hover {
@@ -77,6 +83,7 @@ const YearWrapper = styled.div`
 `;
 
 const Footer = ({ darkMode }: FooterProps): JSX.Element => {
+  const { t } = useTranslation();
   const [isLoaded, setIsLoaded] = useState(false);
   const styledLoaded = isLoaded ? "animate" : "";
 
@@ -96,8 +103,13 @@ const Footer = ({ darkMode }: FooterProps): JSX.Element => {
         </LogoWrapper>
       </Item>
       <Item className={styledLoaded} $darkmode={darkMode}>
-        <Span text="A propos" strong={true} />
-        <Span text="Mentions légales" strong={true} />
+        <Anchor
+          text={t("about.about")}
+          strong={true}
+          className="about"
+          href="/Home/about"
+        />
+        <Span text={t("notice.legal")} strong={true} />
       </Item>
       <Item className={styledLoaded} $darkmode={darkMode}>
         <YearWrapper>

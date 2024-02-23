@@ -33,11 +33,15 @@ const GlobalStyles = styled.createGlobalStyle<{ darkMode?: boolean }>`
     height: 100%;
   }
   ::selection {
-    background-color: yellow;
+    background-color: ${(props) =>
+      props.darkMode ? COLORS.PEACH[100] : COLORS.TANGERINE[100]};
     color: black;
   }
   body {
     scroll-behavior: smooth;
+  }
+  body.active {
+    overflow: hidden;
   }
   body {
     line-height: 1.5;
@@ -47,6 +51,7 @@ const GlobalStyles = styled.createGlobalStyle<{ darkMode?: boolean }>`
   }
 
   p,
+  a,
   span,
   h1,
   h3,

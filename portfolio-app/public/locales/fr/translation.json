@@ -3,17 +3,30 @@
     "part1": "DÉVELOPPEUR",
     "part2": "FRONT-END"
   },
+  "notice": {
+    "legal": "Mentions légales"
+  },
   "about": {
     "about": "À propos",
     "description": "Bonjour, je suis un développeur  français, vivant entre Lyon et Paris. Passionné par le développement web et appli, j'adore explorer de nouvelles technologies web et je suis toujours en quête de nouvelles compétences à acquérir.",
-    "learn": "En savoir plus"
+    "learn": "En savoir plus",
+    "detail": "Après 8 ans à jongler avec les boutons dans le monde de la production musicale, en tant que maestro des studios, j'ai décidé de switcher vers quelque chose de plus digital : le développement web. Adieu notes, bonjour codes ! C'est comme changer sa partition pour une nouvelle mélodie tech, et je suis prêt à créer des sites qui feront danser les lignes de code autant que les mélomanes. Let the web symphony begin! 🎶"
   },
   "experience": {
     "title": "EXPERIENCE PRO",
-    "label": "Développeur full stack"
+    "label": "Développeur Full-Stack",
+    "labelFront": "Développeur Front-End",
+    "intership1": "Alvie - Alternance",
+    "intership2": "Alvie - Stage",
+    "intershipTime1": "Juin 2022 - Février 2024",
+    "intershipTime2": "Janvier 2022 - Juin 202z"
   },
   "projects": {
-    "title": "PROJECTS",
+    "title": "PROJETS",
+    "dine": {
+      "detail": "Dine est un site designé pour des restaurants gastronomique dans lequel il est possible de réserver une table directement depuis celui-ci.",
+      "context": "Ce site a été créé depuis un design système téléchargé sur la plateforme frontendmentor.io, codé en React et Typescript, utilisant des styled components et react hook form ."
+    },
     "label": {
       "perso": "Personal project",
       "pro": "professional project"
@@ -22,5 +35,9 @@
   "contact": {
     "email": "Envoyer un mail",
     "phone": "Apeller"
+  },
+  "errors": {
+    "empty": "Ce champ ne peut pas être vide",
+    "invalid": "Entrez un email valide"
   }
 }

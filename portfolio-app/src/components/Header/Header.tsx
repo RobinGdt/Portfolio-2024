@@ -4,6 +4,7 @@ import { AnimatedContainer } from "../../utils/constants";
 import { Logo, Moon, Sun } from "../../utils/icon";
 import SwitchLanguage from "../SwitchLanguage/SwitchLanguage";
 import Span from "../../ui-components/Span/Span";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   darkMode?: boolean;
@@ -18,8 +19,6 @@ const SyledHeader = styled.div`
   display: grid;
   grid-template-columns: 1fr 4.2fr 4.2fr 4fr 1fr;
   grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
 `;
 
 const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
@@ -27,7 +26,6 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
     props.$darkmode
       ? `0.3px solid ${COLORS.DARKSLATE[100]}`
       : `0.3px solid ${COLORS.SKY[100]}`};
-  border-bottom: none;
   padding: 15px 40px 15px 40px;
   position: relative;
   font-size: 30px;
@@ -37,7 +35,7 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   align-items: center;
 `;
 
-const LogoWrapper = styled.div`
+const LogoWrapper = styled(Link)`
   width: 55%;
   display: flex;
   align-items: center;
@@ -92,7 +90,7 @@ const Header = ({
     <SyledHeader>
       <Item className={styledLoaded} $darkmode={darkMode} />
       <Item className={styledLoaded} $darkmode={darkMode}>
-        <LogoWrapper>
+        <LogoWrapper to="/" onClick={onClickLoading}>
           <Logo
             fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]}
             stroke={darkMode ? COLORS.NIGHT[100] : COLORS.WHITE[100]}

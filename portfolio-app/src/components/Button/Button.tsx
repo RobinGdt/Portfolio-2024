@@ -28,7 +28,7 @@ const StyledButton = styled.button<{ $darkmode?: boolean }>`
   border: ${(props) =>
     props.$darkmode
       ? `1px solid ${COLORS.DARKSLATE[100]}`
-      : `0.1px solid ${COLORS.SKY[100]}`};
+      : `1px solid ${COLORS.SKY[100]}`};
   display: flex;
   justify-content: space-between;
   background-color: transparent;
@@ -50,12 +50,16 @@ const StyledButton = styled.button<{ $darkmode?: boolean }>`
   }
 
   &:hover {
-    border: 0.5px solid ${COLORS.TANGERINE[100]};
+    border: ${(props) =>
+      props.$darkmode
+        ? `1px solid ${COLORS.PEACH[100]}`
+        : `1px solid ${COLORS.TANGERINE[100]}`};
 
     svg {
       animation: ${moveArrow} 400ms linear;
       path {
-        stroke: ${COLORS.TANGERINE[100]};
+        stroke: ${(props) =>
+          props.$darkmode ? COLORS.PEACH[100] : COLORS.TANGERINE[100]};
       }
     }
   }

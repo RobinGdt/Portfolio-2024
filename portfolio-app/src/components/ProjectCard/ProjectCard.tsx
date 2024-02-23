@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Paragraph from "../../ui-components/Paragraph/Paragraph";
 import { COLORS } from "../../utils/palette";
 import { Link } from "react-router-dom";
+import Span from "../../ui-components/Span/Span";
 
 interface ProjectCardProps {
   title: string;
@@ -37,11 +37,11 @@ const StyledProjectCard = styled.div<{ $background: string }>`
   &:hover {
     background-size: 120%;
     h3 {
-      text-shadow: -5px -5px 0 #632dd748, 1px -1px 0 #2db8d77b,
+      text-shadow: -5px -5px 0 #d9c9fc47, 1px -1px 0 #eefcff7a,
         -1px 1px #2daad7d6, 1px 1px 0 #2dd785;
       transition: all 0.5s;
     }
-    box-shadow: inset 0 0 0 2000px rgba(255, 0, 150, 0.3);
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
     transition: all 0.5s;
   }
 `;
@@ -50,16 +50,15 @@ const ParagraphContainer = styled.div`
   display: flex;
   font-size: 14px;
   align-self: start;
-  padding-left: 5%;
-  padding-right: 5%;
-  background: #00000049;
+  padding: 0 5% 0 5%;
+  background: rgba(9, 34, 59, 0.5);
   border-radius: 40px;
-  backdrop-filter: blur(20px);
 
-  p {
+  span {
     color: ${COLORS.WHITE[100]};
-    line-height: 0;
     font-size: var(--16px);
+    backdrop-filter: blur(8px);
+    line-height: 30px;
   }
 `;
 
@@ -75,7 +74,7 @@ const ProjectCard = ({
       <StyledProjectCard $background={background}>
         <h3>{title}</h3>
         <ParagraphContainer>
-          <Paragraph text={projet} />
+          <Span text={projet} />
         </ParagraphContainer>
       </StyledProjectCard>
     </Link>

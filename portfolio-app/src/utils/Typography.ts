@@ -52,6 +52,9 @@ const Typography = styled.createGlobalStyle`
   }
   a {
     text-decoration: none;
+    font-family: "Strawford", sans-serif;
+    font-size: var(--20px);
+    line-height: var(--48px);
   }
 
   @media (max-width: 740px) {
