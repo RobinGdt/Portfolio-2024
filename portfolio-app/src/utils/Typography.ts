@@ -58,11 +58,11 @@ const Typography = styled.createGlobalStyle`
   }
 
   @media (max-width: 740px) {
-    h1 {
+    /* h1 {
       font-size: var(--48px);
-    }
+    } */
     h2 {
-      font-size: var(--24px);
+      font-size: var(--48px);
     }
     h3 {
       font-size: var(--16px);
@@ -77,10 +77,10 @@ const Typography = styled.createGlobalStyle`
       font-size: var(--14px);
     }
     p {
-      font-size: var(--14px);
+      font-size: var(--24px);
     }
     span {
-      font-size: var(--14px);
+      font-size: var(--24px);
     }
   }
 `;

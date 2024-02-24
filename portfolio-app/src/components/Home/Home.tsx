@@ -23,13 +23,61 @@ const StyledHome = styled.div`
   width: 100%;
 `;
 
-const Grid = styled.div`
+const Section = styled.div`
   display: grid;
   grid-template-columns: 1fr 8.4fr 4fr 1fr;
   grid-template-rows: repeat(1fr, 4fr, 4fr, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  min-width: 770px;
+
+  .display {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr 12.4fr 1fr;
+
+    .display {
+      display: block;
+    }
+    .none {
+      display: none;
+    }
+  }
 `;
+
+const CustomSection = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 4fr 8.4fr 1fr;
+  grid-template-rows: repeat(1fr, 4fr, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  min-width: 770px;
+
+  .display {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr 12.4fr 1fr;
+
+    .display {
+      display: block;
+    }
+    .none {
+      display: none;
+    }
+  }
+`;
+
+// const Grid = styled.div`
+//   display: grid;
+//   grid-template-columns: 1fr 8.4fr 4fr 1fr;
+//   grid-template-rows: repeat(1fr, 4fr, 4fr, 1fr);
+//   grid-column-gap: 0px;
+//   grid-row-gap: 0px;
+// `;
 
 const Title = styled.div`
   width: 60%;
@@ -38,9 +86,10 @@ const Title = styled.div`
   align-items: flex-end;
   position: relative;
 
-  /* strong {
-    letter-spacing: 7px;
-  } */
+  @media (max-width: 1200px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
@@ -68,15 +117,21 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
     align-self: flex-start;
     border: none;
   }
+
+  @media (max-width: 1200px) {
+    .double-column {
+      grid-row: span 1;
+    }
+  }
 `;
 
-const CustomItem = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 4fr 8.4fr 1fr;
-  grid-template-rows: repeat(1fr, 4fr, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-`;
+// const CustomItem = styled.div`
+//   display: grid;
+//   grid-template-columns: 1fr 4fr 8.4fr 1fr;
+//   grid-template-rows: repeat(1fr, 4fr, 1fr);
+//   grid-column-gap: 0px;
+//   grid-row-gap: 0px;
+// `;
 
 const Home = ({
   darkMode,
@@ -113,111 +168,121 @@ const Home = ({
   ];
   return (
     <StyledHome>
-      <section>
-        <Grid>
-          <Item className={styledLoaded} $darkmode={darkMode} />
-          <Item className={styledLoaded} $darkmode={darkMode}>
-            <Title>
-              <h1>
-                {t("title.part1")} <strong>{t("title.part2")}</strong>
-              </h1>
-            </Title>
-          </Item>
-          <Item
-            className={`item puddle-item ${styledLoaded}`}
-            $darkmode={darkMode}
+      {/* <Grid> */}
+      <Section>
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode}>
+          <Title>
+            <h1>
+              {t("title.part1")} <strong>{t("title.part2")}</strong>
+            </h1>
+          </Title>
+        </Item>
+        <Item
+          className={`item none puddle-item ${styledLoaded}`}
+          $darkmode={darkMode}
+        />
+        <Item className={styledLoaded} $darkmode={darkMode} />
+      </Section>
+      <Section>
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item
+          className={`item none puddle-item ${styledLoaded}`}
+          $darkmode={darkMode}
+        />
+        <Item
+          className={`item contact-item ${styledLoaded}`}
+          $darkmode={darkMode}
+        >
+          <Subtitle text="CONTACT" />
+          <Button title="Me contacter" darkMode={darkMode} />
+        </Item>
+        <Item className={styledLoaded} $darkmode={darkMode} />
+      </Section>
+      <Section>
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode}>
+          <Subtitle text={t("about.about")} />
+          <Paragraph text={t("about.description")} />
+          <Button
+            title={t("about.learn")}
+            darkMode={darkMode}
+            to="/about"
+            onClick={onClickLoading}
           />
-          <Item className={styledLoaded} $darkmode={darkMode} />
-          <Item className={styledLoaded} $darkmode={darkMode} />
-          <Item
-            className={`item puddle-item ${styledLoaded}`}
-            $darkmode={darkMode}
+        </Item>
+        <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
+        <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode}>
+          <Subtitle text="SOCIAL" />
+          <Button
+            title="GitHub"
+            href="https://github.com/RobinGdt"
+            darkMode={darkMode}
           />
-          <Item
-            className={`item contact-item ${styledLoaded}`}
-            $darkmode={darkMode}
-          >
-            <Subtitle text="CONTACT" />
-            <Button title="Me contacter" darkMode={darkMode} />
-          </Item>
-          <Item className={styledLoaded} $darkmode={darkMode} />
+          <Button
+            title="Linkedin"
+            href="https://www.linkedin.com/in/robin-godart-4847351b9/"
+            darkMode={darkMode}
+          />
+        </Item>
+        <Item className={styledLoaded} $darkmode={darkMode} />
+      </Section>
+      {/* </Grid> */}
+      <CustomSection>
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode}>
+          <Subtitle text={t("experience.title")} />
+          <Button
+            title="Alvie"
+            label={t("experience.label")}
+            darkMode={darkMode}
+            to="/about"
+            onClick={onClickLoading}
+          />
+        </Item>
+        <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
+        <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
+        <Item
+          className={`item double-column ${styledLoaded}`}
+          $darkmode={darkMode}
+        >
+          <Subtitle text={t("projects.title")} />
+          {projectData.map((item, index) => (
+            <ProjectCard
+              background={item.image}
+              title={item.title}
+              projet={item.projet}
+              key={index}
+              to={item.to}
+              onClick={onClickLoading}
+            />
+          ))}
+        </Item>
+        <Item
+          className={`item none double-column ${styledLoaded}`}
+          $darkmode={darkMode}
+        />
+        <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
+        <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
+        <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
 
-          <Item className={styledLoaded} $darkmode={darkMode} />
-          <Item className={styledLoaded} $darkmode={darkMode}>
-            <Subtitle text={t("about.about")} />
-            <Paragraph text={t("about.description")} />
-            <Button
-              title={t("about.learn")}
-              darkMode={darkMode}
-              to="/about"
-              onClick={onClickLoading}
-            />
-          </Item>
-          <Item className={styledLoaded} $darkmode={darkMode}>
-            <Subtitle text="SOCIAL" />
-            <Button
-              title="GitHub"
-              href="https://github.com/RobinGdt"
-              darkMode={darkMode}
-            />
-            <Button
-              title="Linkedin"
-              href="https://www.linkedin.com/in/robin-godart-4847351b9/"
-              darkMode={darkMode}
-            />
-          </Item>
-          <Item className={styledLoaded} $darkmode={darkMode} />
-        </Grid>
-      </section>
-      <section>
-        <CustomItem>
-          <Item className={styledLoaded} $darkmode={darkMode} />
-          <Item className={styledLoaded} $darkmode={darkMode}>
-            <Subtitle text={t("experience.title")} />
-            <Button
-              title="Alvie"
-              label={t("experience.label")}
-              darkMode={darkMode}
-              to="/about"
-              onClick={onClickLoading}
-            />
-          </Item>
-          <Item
-            className={`item double-column ${styledLoaded}`}
-            $darkmode={darkMode}
-          >
-            <Subtitle text={t("projects.title")} />
-            {projectData.map((item, index) => (
-              <ProjectCard
-                background={item.image}
-                title={item.title}
-                projet={item.projet}
-                key={index}
-                to={item.to}
-                onClick={onClickLoading}
-              />
-            ))}
-          </Item>
-          <Item
-            className={`item double-column ${styledLoaded}`}
-            $darkmode={darkMode}
+        <Item className={styledLoaded} $darkmode={darkMode} />
+        <Item className={styledLoaded} $darkmode={darkMode} id="contact-item">
+          <Subtitle text="CONTACT" />
+          <Button
+            title={t("contact.email")}
+            darkMode={darkMode}
+            onClick={toggleModal}
           />
-          <Item className={styledLoaded} $darkmode={darkMode} />
-          <Item className={styledLoaded} $darkmode={darkMode} id="contact-item">
-            <Subtitle text="CONTACT" />
-            <Button
-              title={t("contact.email")}
-              darkMode={darkMode}
-              onClick={toggleModal}
-            />
-            <Button
-              title={t("contact.phone")}
-              darkMode={darkMode}
-              href="tel: +33782255092"
-            />
-          </Item>
-        </CustomItem>
-      </section>
+          <Button
+            title={t("contact.phone")}
+            darkMode={darkMode}
+            href="tel: +33782255092"
+          />
+        </Item>
+        <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
+      </CustomSection>
       {modalIsOpen && (
         <FormContact toggleModal={toggleModal} darkMode={darkMode} />
       )}

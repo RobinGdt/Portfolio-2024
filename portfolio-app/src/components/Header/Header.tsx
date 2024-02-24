@@ -19,6 +19,14 @@ const SyledHeader = styled.div`
   display: grid;
   grid-template-columns: 1fr 4.2fr 4.2fr 4fr 1fr;
   grid-template-rows: 1fr;
+  min-width: 770px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr 5.1fr 7.1fr 1fr;
+    .none {
+      display: none;
+    }
+  }
 `;
 
 const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
@@ -33,6 +41,12 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   text-align: left;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1200px) {
+    .none {
+      display: none;
+    }
+  }
 `;
 
 const LogoWrapper = styled(Link)`
@@ -65,6 +79,13 @@ const LogoWrapper = styled(Link)`
       transition: color 300ms ease-out;
     }
   }
+
+  @media (max-width: 1200px) {
+    svg {
+      width: 60px;
+      height: 60px;
+    }
+  }
 `;
 
 const SvgContainer = styled.div`
@@ -95,10 +116,10 @@ const Header = ({
             fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]}
             stroke={darkMode ? COLORS.NIGHT[100] : COLORS.WHITE[100]}
           />
-          <Span text="Robin Godart" strong={true} />
+          <Span className="none" text="Robin Godart" strong={true} />
         </LogoWrapper>
       </Item>
-      <Item className={styledLoaded} $darkmode={darkMode} />
+      <Item className={`none ${styledLoaded}`} $darkmode={darkMode} />
       <Item className={styledLoaded} $darkmode={darkMode}>
         <SwitchLanguage darkMode={darkMode} />
         {darkMode ? (

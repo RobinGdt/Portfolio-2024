@@ -17,6 +17,14 @@ const StyledFooter = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr 4.4fr 4fr 1fr;
   grid-template-rows: 1fr;
+  min-width: 770px;
+
+  @media (max-width: 1050px) {
+    grid-template-columns: 1fr 5.1fr 7.1fr 1fr;
+    .none {
+      display: none;
+    }
+  }
 `;
 
 const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
@@ -99,7 +107,7 @@ const Footer = ({ darkMode }: FooterProps): JSX.Element => {
             fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]}
             stroke={darkMode ? COLORS.NIGHT[100] : COLORS.WHITE[100]}
           />
-          <Span text="Robin Godart" strong={true} />
+          <Span className="none" text="Robin Godart" strong={true} />
         </LogoWrapper>
       </Item>
       <Item className={styledLoaded} $darkmode={darkMode}>
@@ -111,7 +119,7 @@ const Footer = ({ darkMode }: FooterProps): JSX.Element => {
         />
         <Span text={t("notice.legal")} strong={true} />
       </Item>
-      <Item className={styledLoaded} $darkmode={darkMode}>
+      <Item className={`none ${styledLoaded}`} $darkmode={darkMode}>
         <YearWrapper>
           <Span text="2024" strong={true} />
         </YearWrapper>

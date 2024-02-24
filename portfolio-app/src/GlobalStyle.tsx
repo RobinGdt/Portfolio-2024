@@ -22,6 +22,7 @@ const GlobalStyles = styled.createGlobalStyle<{ darkMode?: boolean }>`
     --18px: 1.125rem;
     --20px: 1.25rem;
     --24px: 1.5rem;
+    --30px: 1.85rem;
     --36px: 2.25rem;
     --48px: 3rem;
     --96px: 6rem;
@@ -31,6 +32,7 @@ const GlobalStyles = styled.createGlobalStyle<{ darkMode?: boolean }>`
   body,
   #root {
     height: 100%;
+    width: 100vw;
   }
   ::selection {
     background-color: ${(props) =>

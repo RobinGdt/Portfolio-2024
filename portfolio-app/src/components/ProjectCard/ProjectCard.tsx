@@ -14,7 +14,7 @@ interface ProjectCardProps {
 const StyledProjectCard = styled.div<{ $background: string }>`
   width: 95%;
   height: 150px;
-  min-width: 500px;
+  min-width: 480px;
   background-image: url(${(props) => props.$background});
   background-size: cover;
   background-position: center;
