@@ -14,7 +14,6 @@ interface ProjectCardProps {
 const StyledProjectCard = styled.div<{ $background: string }>`
   width: 95%;
   height: 150px;
-  min-width: 480px;
   background-image: url(${(props) => props.$background});
   background-size: cover;
   background-position: center;
@@ -44,6 +43,11 @@ const StyledProjectCard = styled.div<{ $background: string }>`
     box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
     transition: all 0.5s;
   }
+
+  @media (max-width: 1050px) {
+    height: 75px;
+    width: 90%;
+  }
 `;
 
 const ParagraphContainer = styled.div`
@@ -57,8 +61,11 @@ const ParagraphContainer = styled.div`
   span {
     color: ${COLORS.WHITE[100]};
     font-size: var(--16px);
-    backdrop-filter: blur(8px);
     line-height: 30px;
+  }
+
+  @media (max-width: 1050px) {
+    display: none;
   }
 `;
 
@@ -73,7 +80,7 @@ const ProjectCard = ({
     <Link to={to} onClick={onClick}>
       <StyledProjectCard $background={background}>
         <h3>{title}</h3>
-        <ParagraphContainer>
+        <ParagraphContainer className="none">
           <Span text={projet} />
         </ParagraphContainer>
       </StyledProjectCard>

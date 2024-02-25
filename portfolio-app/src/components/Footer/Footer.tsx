@@ -17,7 +17,6 @@ const StyledFooter = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr 4.4fr 4fr 1fr;
   grid-template-rows: 1fr;
-  min-width: 770px;
 
   @media (max-width: 1050px) {
     grid-template-columns: 1fr 5.1fr 7.1fr 1fr;
@@ -39,10 +38,18 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   text-align: left;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1050px) {
+    padding: 5px 15px 5px 15px;
+
+    .none {
+      display: none;
+    }
+  }
 `;
 
 const LogoWrapper = styled.div<{ $darkmode?: boolean }>`
-  width: 65%;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 5%;
@@ -117,7 +124,7 @@ const Footer = ({ darkMode }: FooterProps): JSX.Element => {
           className="about"
           href="/Home/about"
         />
-        <Span text={t("notice.legal")} strong={true} />
+        <Span text={t("notice.legal")} strong={true} className="none" />
       </Item>
       <Item className={`none ${styledLoaded}`} $darkmode={darkMode}>
         <YearWrapper>

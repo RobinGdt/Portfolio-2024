@@ -23,19 +23,19 @@ const StyledHome = styled.div`
   width: 100%;
 `;
 
-const Section = styled.div`
+const Section = styled.section`
   display: grid;
   grid-template-columns: 1fr 8.4fr 4fr 1fr;
   grid-template-rows: repeat(1fr, 4fr, 4fr, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  min-width: 770px;
+  min-width: 350px;
 
   .display {
     display: none;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1050px) {
     grid-template-columns: 1fr 12.4fr 1fr;
 
     .display {
@@ -47,19 +47,19 @@ const Section = styled.div`
   }
 `;
 
-const CustomSection = styled.div`
+const CustomSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 4fr 8.4fr 1fr;
   grid-template-rows: repeat(1fr, 4fr, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  min-width: 770px;
+  min-width: 350px;
 
   .display {
     display: none;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1050px) {
     grid-template-columns: 1fr 12.4fr 1fr;
 
     .display {
@@ -70,14 +70,6 @@ const CustomSection = styled.div`
     }
   }
 `;
-
-// const Grid = styled.div`
-//   display: grid;
-//   grid-template-columns: 1fr 8.4fr 4fr 1fr;
-//   grid-template-rows: repeat(1fr, 4fr, 4fr, 1fr);
-//   grid-column-gap: 0px;
-//   grid-row-gap: 0px;
-// `;
 
 const Title = styled.div`
   width: 60%;
@@ -118,20 +110,13 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
     border: none;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1050px) {
+    padding: 15px;
     .double-column {
       grid-row: span 1;
     }
   }
 `;
-
-// const CustomItem = styled.div`
-//   display: grid;
-//   grid-template-columns: 1fr 4fr 8.4fr 1fr;
-//   grid-template-rows: repeat(1fr, 4fr, 1fr);
-//   grid-column-gap: 0px;
-//   grid-row-gap: 0px;
-// `;
 
 const Home = ({
   darkMode,

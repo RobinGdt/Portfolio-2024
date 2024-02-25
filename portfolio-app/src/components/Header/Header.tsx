@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 interface HeaderProps {
   darkMode?: boolean;
   isLoaded: boolean;
-  fill: any;
+  fill: string;
   onClickDarkMode: () => void;
   onClickLoading: () => void;
 }
@@ -19,9 +19,9 @@ const SyledHeader = styled.div`
   display: grid;
   grid-template-columns: 1fr 4.2fr 4.2fr 4fr 1fr;
   grid-template-rows: 1fr;
-  min-width: 770px;
+  min-width: 350px;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1050px) {
     grid-template-columns: 1fr 5.1fr 7.1fr 1fr;
     .none {
       display: none;
@@ -42,7 +42,8 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   justify-content: space-between;
   align-items: center;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1050px) {
+    padding: 5px 15px 5px 15px;
     .none {
       display: none;
     }
@@ -50,7 +51,7 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
 `;
 
 const LogoWrapper = styled(Link)`
-  width: 55%;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 5%;
@@ -80,7 +81,7 @@ const LogoWrapper = styled(Link)`
     }
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1050px) {
     svg {
       width: 60px;
       height: 60px;
@@ -95,6 +96,12 @@ const SvgContainer = styled.div`
       path {
         stroke: ${COLORS.PEACH[100]};
       }
+    }
+  }
+  @media (max-width: 1050px) {
+    svg {
+      width: 30px;
+      height: 30px;
     }
   }
 `;

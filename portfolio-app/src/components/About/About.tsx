@@ -34,6 +34,10 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   flex-direction: column;
   text-align: left;
   justify-content: space-between;
+
+  @media (max-width: 1050px) {
+    padding: 15px;
+  }
 `;
 
 const ExperienceWrapper = styled.div<{ $darkmode?: boolean }>`

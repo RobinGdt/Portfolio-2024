@@ -12,6 +12,11 @@ const StyledSwitchLanguage = styled.div`
   display: flex;
   align-items: center;
   gap: 5%;
+  @media (max-width: 1050px) {
+    span {
+      font-size: 15px;
+    }
+  }
 `;
 
 const SwitchLanguage = ({ darkMode }: SwitchLanguageProps): JSX.Element => {

@@ -16,6 +16,12 @@ interface FormContactProps {
   darkMode?: boolean;
 }
 
+interface FormData {
+  user_email: string;
+  object: string;
+  message: string;
+}
+
 const Modal = styled.div`
   width: 100%;
   height: 100%;
@@ -55,6 +61,11 @@ const ModalContent = styled.div<{ $darkmode?: boolean }>`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 1050px) {
+    width: 80%;
+    min-height: 0;
+  }
 `;
 
 const Form = styled.form`
@@ -93,18 +104,23 @@ const Input = styled.input<{ $darkmode?: boolean; $haserror?: boolean }>`
   &:focus {
     border: 2px solid ${COLORS.SKY[100]};
   }
+
+  @media (max-width: 1050px) {
+    font-size: 20px;
+    &::placeholder {
+      font-size: 20px;
+    }
+  }
 `;
 
 const Textarea = styled.textarea<{ $darkmode?: boolean; $haserror?: boolean }>`
   max-width: 100%;
-  min-width: 90%;
   width: 90%;
   min-height: 100px;
   margin-top: 30px;
   padding: 7px;
   outline: none;
   border-radius: 5px;
-  /* padding-top: 30px; */
   background-color: ${(props) =>
     props.$darkmode ? "transparent" : COLORS.WHITE[100]};
   color: ${(props) =>
@@ -120,6 +136,13 @@ const Textarea = styled.textarea<{ $darkmode?: boolean; $haserror?: boolean }>`
 
   &:focus {
     border: 2px solid ${COLORS.SKY[100]};
+  }
+
+  @media (max-width: 1050px) {
+    font-size: 20px;
+    &::placeholder {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -172,7 +195,7 @@ const FormContact = ({
     },
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: FormData) => {
     const params = {
       user_email: data.user_email,
       object: data.object,

@@ -3,7 +3,7 @@ import styled from "styled-components";
 interface ParagraphProps {
   text: string;
   strong?: boolean;
-  className?: any;
+  className?: string;
 }
 
 const StyledSpan = styled.span<{ $strong?: boolean }>`

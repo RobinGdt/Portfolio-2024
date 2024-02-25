@@ -3,10 +3,10 @@ import { COLORS } from "../../utils/palette";
 import { useEffect, useState } from "react";
 
 interface SwitchBttonProps {
-  toggled?: any;
-  onChange?: any;
+  toggled?: boolean;
+  onChange?: (isChecked: boolean) => void;
   darkMode?: boolean;
-  id?: any;
+  id?: string;
 }
 
 const Wrapper = styled.div`

@@ -50,6 +50,10 @@ const ItemTitle = styled(AnimatedContainer)<{
     margin-top: 50px;
     margin-bottom: 50px;
   }
+
+  @media (max-width: 1050px) {
+    padding: 15px;
+  }
 `;
 
 const ProjectDetails = styled(ProjectTitle)`
@@ -61,6 +65,9 @@ const ItemDetail = styled(ItemTitle)`
   flex-direction: column;
   align-items: flex-start;
   padding: 40px;
+  @media (max-width: 1050px) {
+    padding: 15px;
+  }
 `;
 
 const ProjectContext = styled(ProjectTitle)``;
@@ -68,9 +75,16 @@ const ProjectContext = styled(ProjectTitle)``;
 const ProjectsWrapper = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 24px;
+
+  @media (max-width: 1050px) {
+    flex-direction: column;
+  }
+`;
+
+const Project = styled.div`
+  width: 100%;
 `;
 
 const ItemContext = styled(ItemDetail)``;
@@ -161,11 +175,11 @@ const Projects = ({
         <ItemContext $darkmode={darkMode} className={styledLoaded} />
         <ItemContext $darkmode={darkMode} className={styledLoaded} />
         {/*------------------ OTHER PROJECTS ------------------*/}
-        <ItemContext $darkmode={darkMode} className={styledLoaded}>
+        <ItemContext $darkmode={darkMode} className={`wrap ${styledLoaded}`}>
           <Subtitle text="AUTRES PROJETS" />
           <ProjectsWrapper>
-            {firstProject}
-            {secondProject}
+            <Project>{firstProject}</Project>
+            <Project>{secondProject}</Project>
           </ProjectsWrapper>
         </ItemContext>
         <ItemContext $darkmode={darkMode} className={styledLoaded} />

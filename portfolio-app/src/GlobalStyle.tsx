@@ -32,7 +32,6 @@ const GlobalStyles = styled.createGlobalStyle<{ darkMode?: boolean }>`
   body,
   #root {
     height: 100%;
-    width: 100vw;
   }
   ::selection {
     background-color: ${(props) =>

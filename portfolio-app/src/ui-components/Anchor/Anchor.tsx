@@ -3,8 +3,8 @@ import styled from "styled-components";
 interface AnchorProps {
   text: string;
   strong?: boolean;
-  className?: any;
-  href: any;
+  className?: string;
+  href: string;
 }
 
 const StyledSpan = styled.a<{ $strong?: boolean }>`

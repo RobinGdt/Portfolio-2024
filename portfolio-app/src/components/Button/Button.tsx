@@ -73,6 +73,19 @@ const StyledButton = styled.button<{ $darkmode?: boolean }>`
       }
     }
   }
+
+  @media (max-width: 1050px) {
+    height: 66px;
+    border: ${(props) =>
+      props.$darkmode
+        ? `2px solid ${COLORS.DARKSLATE[100]}`
+        : `1px solid ${COLORS.SKY[100]}`};
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
 `;
 
 const Label = styled.label`
