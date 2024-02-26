@@ -34,7 +34,7 @@
       "context": "Ce projet full-stack a constitué un véritable défi en raison de la complexité et de la sensibilité de la base de données. Depuis la conception initiale jusqu'à la mise en production du projet, j'ai pris en charge l'intégralité du processus, en m'occupant de l'expérience utilisateur, de l'interface utilisateur, du développement back-end avec Node.js et PostgresSQL, ainsi que du front-end avec React en utilisant TypeScript, incluant également la mise en production du système."
     },
     "photosnap": {
-      "detail": "Photosnap est un site marketing de création d'histoires et de partage de photos",
+      "detail": "Photosnap est un site marketing de création d'histoires et de partage de photos.",
       "context": "Ce projet a été créé depuis un design système téléchargé sur la plateforme frontendmentor.io, codé en React et Typescript, utilisant des styled components et react hook form ."
     },
     "label": {
