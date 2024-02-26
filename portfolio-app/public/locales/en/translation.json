@@ -8,9 +8,11 @@
   },
   "about": {
     "about": "About",
-    "description": "Hello, I am a French developer, living between Lyon and Paris. Passionate about web and app development, I love exploring new web technologies, and I am always eager to acquire new skills.",
+    "description": "Hey ! I am Robin, a French developer living between Lyon and Paris. Passionate about web and app development, I love exploring new web technologies, and I am always eager to acquire new skills.",
     "learn": "Learn more",
-    "detail": "After 8 years of juggling buttons in the realm of music production as a studio maestro, I've decided to switch gears to something more digital: web development. Goodbye notes, hello codes! It's like swapping my sheet music for a new tech melody, and I'm ready to create websites that'll make both code enthusiasts and music lovers dance. Let the web symphony begin! 🎶"
+    "detailpart1": "I have recently successfully completed my three-year Bachelor's degree at HETIC, an experience that has strengthened my skills in the digital field.",
+    "detailpart2": "Over the past two years, I have had the enriching opportunity to apply my knowledge as a developer at Alvie, a cutting-edge startup specializing in agronomic science. My role focused on the development of an innovative application aimed at reducing the spraying of phytosanitary products.",
+    "detailpart3": "As a developer specializing in React, React Native, and Typescript, I have dedicated two years to honing these essential skills while working on concrete projects. The application incorporates a sophisticated algorithm that considers more than 25 local parameters to optimize efficiency while minimizing environmental impact. Today, I am driven by the desire to explore new professional opportunities."
   },
   "experience": {
     "title": "PROFESSIONAL EXPERIENCE",
@@ -22,10 +24,18 @@
     "intershipTime2": "January 2022 - June 2022"
   },
   "projects": {
-    "title": "PROJEcTS",
+    "title": "PROJECTS",
     "dine": {
       "detail": "Dine is a website designed for gourmet restaurants where it is possible to make a table reservation directly through the platform.",
       "context": "This website was created from a system design downloaded from the frontendmentor.io platform, coded in React and TypeScript, using styled components and react-hook-form."
+    },
+    "hygo": {
+      "detail": "HygoTools is a platform created to simplify the modification and the research of data related to phytosanitary products in the HYGO application, an internal project initially established for the company's doctor and engineers who do not have direct access to the database.",
+      "context": "This full-stack project has been a real challenge due to the complexity and sensitivity of the database. From the initial frames to the project's production deployment, I took full control, handling the UX, UI, back-end in Node.js and PostgresSQL, and the front-end in React with TypeScript, including the deployment to production."
+    },
+    "photosnap": {
+      "detail": "Photosnap is a marketing website for creating stories and sharing photos.",
+      "context": "This project was created from a design system downloaded on the frontendmentor.io platform, coded in React and Typescript, utilizing styled components and react hook form."
     },
     "label": {
       "perso": "Personal project",
@@ -39,5 +49,6 @@
   "errors": {
     "empty": "This field can not be empty",
     "invalid": "Please enter a valid email"
-  }
+  },
+  "visit": "Visit website"
 }

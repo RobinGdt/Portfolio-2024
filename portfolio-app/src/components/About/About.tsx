@@ -5,6 +5,7 @@ import Subtitle from "../../ui-components/Subtitle/Subtitle";
 import { useTranslation } from "react-i18next";
 import Span from "../../ui-components/Span/Span";
 import Paragraph from "../../ui-components/Paragraph/Paragraph";
+import hygo from "../../assets/hygo.webp";
 
 interface AboutProps {
   darkMode: boolean;
@@ -54,6 +55,12 @@ const ExperienceWrapper = styled.div<{ $darkmode?: boolean }>`
   }
 `;
 
+const Img = styled.img`
+  max-width: 80%;
+  display: flex;
+  align-self: center;
+`;
+
 const About = ({ darkMode, isLoaded }: AboutProps): JSX.Element => {
   const { t } = useTranslation();
   const styledLoaded = isLoaded ? "animate" : "";
@@ -63,7 +70,10 @@ const About = ({ darkMode, isLoaded }: AboutProps): JSX.Element => {
         <Item className={styledLoaded} $darkmode={darkMode} />{" "}
         <Item className={styledLoaded} $darkmode={darkMode}>
           <Subtitle text={t("about.about")} />
-          <Paragraph text={t("about.detail")} />
+          <Paragraph text={t("about.detailpart1")} />
+          <Paragraph text={t("about.detailpart2")} />
+          <Paragraph text={t("about.detailpart3")} />
+          <Img src={hygo} alt="hygo" />
         </Item>{" "}
         <Item className={styledLoaded} $darkmode={darkMode} />
         <Item className={styledLoaded} $darkmode={darkMode} />{" "}

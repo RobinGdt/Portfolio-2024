@@ -2,9 +2,9 @@ import styled from "styled-components";
 import Button from "../Button/Button";
 import Subtitle from "../../ui-components/Subtitle/Subtitle";
 import Paragraph from "../../ui-components/Paragraph/Paragraph";
-import project1 from "../../assets/project-1.jpeg";
+import project1 from "../../assets/champs.webp";
 import dineImage from "../../assets/dine-image.png";
-import photosnapImage from "../../assets/photosnap-image.jpg";
+import photosnapImage from "../../assets/photosnap-image.webp";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import puddle from "./puddle.svg";
 import { AnimatedContainer } from "../../utils/constants";
@@ -12,6 +12,7 @@ import { COLORS } from "../../utils/palette";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import FormContact from "../FormContact/FormContact";
+import { JsLogo, ReactLogo, TsLogo } from "../../utils/icon";
 
 interface HomeProps {
   darkMode: boolean;
@@ -118,6 +119,12 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   }
 `;
 
+const TechnosWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
 const Home = ({
   darkMode,
   isLoaded,
@@ -133,6 +140,12 @@ const Home = ({
 
   const projectData = [
     {
+      title: "HYGO TOOL",
+      projet: t("projects.label.pro"),
+      image: project1,
+      to: "/HygoTools",
+    },
+    {
       title: "DINE",
       projet: t("projects.label.perso"),
       image: dineImage,
@@ -142,18 +155,11 @@ const Home = ({
       title: "PHOTOSNAP",
       projet: t("projects.label.perso"),
       image: photosnapImage,
-      to: "/HygoTools",
-    },
-    {
-      title: "HYGO TOOL",
-      projet: t("projects.label.pro"),
-      image: project1,
-      to: "/gpp",
+      to: "/Photosnap",
     },
   ];
   return (
     <StyledHome>
-      {/* <Grid> */}
       <Section>
         <Item className={styledLoaded} $darkmode={darkMode} />
         <Item className={styledLoaded} $darkmode={darkMode}>
@@ -179,8 +185,14 @@ const Home = ({
           className={`item contact-item ${styledLoaded}`}
           $darkmode={darkMode}
         >
-          <Subtitle text="CONTACT" />
-          <Button title="Me contacter" darkMode={darkMode} />
+          <Subtitle text="technos" />
+          <TechnosWrapper>
+            <JsLogo fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]} />
+            <ReactLogo
+              fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]}
+            />
+            <TsLogo fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]} />
+          </TechnosWrapper>
         </Item>
         <Item className={styledLoaded} $darkmode={darkMode} />
       </Section>
@@ -213,7 +225,6 @@ const Home = ({
         </Item>
         <Item className={styledLoaded} $darkmode={darkMode} />
       </Section>
-      {/* </Grid> */}
       <CustomSection>
         <Item className={styledLoaded} $darkmode={darkMode} />
         <Item className={styledLoaded} $darkmode={darkMode}>

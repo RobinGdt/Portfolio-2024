@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
@@ -7,14 +7,17 @@ import Typography from "./utils/Typography";
 import { COLORS } from "./utils/palette";
 import Footer from "./components/Footer/Footer";
 import { Route, Routes } from "react-router-dom";
-import i18n from "./i18n";
 import { useLoadingState } from "./customHooks/useLoadingEffect";
 import Projects from "./components/Projects/Projects";
-import projet1 from "./assets/project-1.jpeg";
+import champs from "./assets/champs.webp";
 import dineImage from "./assets/dine-image.png";
-import photosnapImage from "./assets/photosnap-image.jpg";
-import dinePreview from "./assets/dine-preview.jpg";
-import photosnapPreview from "./assets/photosnap-preview.jpg";
+import photosnapImage from "./assets/photosnap-image.webp";
+import dinePreview from "./assets/dine-preview.webp";
+import login from "./assets/Dashboard-Login-New-Design.webp";
+import add from "./assets/Dashboard-Add-Product.webp";
+import edit from "./assets/Dashboard-Edit-Product.webp";
+import search from "./assets/Dashboard-Search-Product-2.webp";
+import photosnapPreview from "./assets/photosnap-preview.webp";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
 import About from "./components/About/About";
@@ -22,18 +25,10 @@ import About from "./components/About/About";
 function App() {
   const { isLoaded, resetLoadingState } = useLoadingState();
   const { t } = useTranslation();
+
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("darkMode") === "true";
   });
-
-  useEffect(() => {
-    const storedLanguage = localStorage.getItem("selectedLanguage");
-    if (storedLanguage) {
-      i18n.changeLanguage(storedLanguage);
-    }
-
-    return () => {};
-  }, []);
 
   const toggleDarkMode = () => {
     setDarkMode((prevDarkMode) => {
@@ -73,22 +68,57 @@ function App() {
           element={<About darkMode={darkMode} isLoaded={isLoaded} />}
         />
         <Route
+          path="/HygoTools"
+          element={
+            <Projects
+              darkMode={darkMode}
+              isLoaded={isLoaded}
+              title="HygoTools"
+              background={champs}
+              projet={t("projects.label.pro")}
+              detailText={t("projects.hygo.detail")}
+              contextDetail={t("projects.hygo.context")}
+              stacks={["React", "Typescript", "NodeJs", "PostgresSQL"]}
+              srcArray={[login, add, search, edit]}
+              firstProject={
+                <ProjectCard
+                  background={photosnapImage}
+                  title={"Photosnap"}
+                  projet={t("projects.label.pro")}
+                  to={"/Photosnap"}
+                  onClick={resetLoadingState}
+                />
+              }
+              secondProject={
+                <ProjectCard
+                  background={dineImage}
+                  title={"Dine"}
+                  projet={t("projects.label.perso")}
+                  to={"/Dine"}
+                  onClick={resetLoadingState}
+                />
+              }
+            />
+          }
+        />
+        <Route
           path="/Dine"
           element={
             <Projects
               darkMode={darkMode}
               isLoaded={isLoaded}
               title="Dine"
+              visitBtn={true}
               href="http://robingdt.github.io/Dine"
               background={dineImage}
               projet={t("projects.label.perso")}
               detailText={t("projects.dine.detail")}
               contextDetail={t("projects.dine.context")}
-              stack="React / Typescript"
+              stacks={["React", "Typescript"]}
               src={dinePreview}
               firstProject={
                 <ProjectCard
-                  background={projet1}
+                  background={champs}
                   title={"HygoTools"}
                   projet={t("projects.label.pro")}
                   to={"/HygoTools"}
@@ -116,50 +146,16 @@ function App() {
               title="Photosnap"
               background={photosnapImage}
               projet={t("projects.label.perso")}
-              detailText="FoodFinder vous permet de trouver des recettes en fonction des ingrédients que vous avez dans votre frigo."
-              stack="React"
-              contextDetail="Dine vous permet de trouver des recettes en fonction des ingrédients que vous avez dans votre frigo."
+              detailText={t("projects.photosnap.detail")}
+              contextDetail={t("projects.photosnap.context")}
+              stacks={["React", "Typescript"]}
               src={photosnapPreview}
               firstProject={
                 <ProjectCard
-                  background={projet1}
+                  background={champs}
                   title={"HygoTools"}
                   projet={t("projects.label.pro")}
                   to={"/HygoTools"}
-                  onClick={resetLoadingState}
-                />
-              }
-              secondProject={
-                <ProjectCard
-                  background={dineImage}
-                  title={"Dine"}
-                  projet={t("projects.label.perso")}
-                  to={"/Dine"}
-                  onClick={resetLoadingState}
-                />
-              }
-            />
-          }
-        />
-        <Route
-          path="/HygoTools"
-          element={
-            <Projects
-              darkMode={darkMode}
-              isLoaded={isLoaded}
-              title="HygoTools"
-              background={projet1}
-              projet={t("projects.label.perso")}
-              detailText="FoodFinder vous permet de trouver des recettes en fonction des ingrédients que vous avez dans votre frigo."
-              stack="React"
-              contextDetail="Dine vous permet de trouver des recettes en fonction des ingrédients que vous avez dans votre frigo."
-              src={projet1}
-              firstProject={
-                <ProjectCard
-                  background={photosnapImage}
-                  title={"Photosnap"}
-                  projet={t("projects.label.pro")}
-                  to={"/Photosnap"}
                   onClick={resetLoadingState}
                 />
               }

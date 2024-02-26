@@ -4,6 +4,7 @@ import { COLORS } from "../../utils/palette";
 import Paragraph from "../../ui-components/Paragraph/Paragraph";
 import Subtitle from "../../ui-components/Subtitle/Subtitle";
 import Button from "../Button/Button";
+import { useTranslation } from "react-i18next";
 
 interface ProjectsProps {
   darkMode: boolean;
@@ -12,12 +13,14 @@ interface ProjectsProps {
   projet: string;
   background: string;
   detailText: string;
-  stack: string;
+  stacks: string[];
   contextDetail: string;
   firstProject: JSX.Element;
   secondProject: JSX.Element;
-  src: string;
+  src?: string;
+  srcArray?: string[];
   href?: string;
+  visitBtn?: boolean;
 }
 
 const StyledProjects = styled.div`
@@ -112,6 +115,18 @@ const Image = styled.img`
   width: 100%;
 `;
 
+const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  img {
+    width: 40%;
+    margin: 20px;
+  }
+`;
+
 const Projects = ({
   darkMode,
   isLoaded,
@@ -119,14 +134,18 @@ const Projects = ({
   title,
   projet,
   detailText,
-  stack,
+  stacks,
   contextDetail,
+  srcArray,
   src,
   href,
   firstProject,
   secondProject,
+  visitBtn,
 }: ProjectsProps): JSX.Element => {
+  const { t } = useTranslation();
   const styledLoaded = isLoaded ? "animate" : "";
+
   return (
     <StyledProjects>
       {/*------------------ TITLE ------------------*/}
@@ -153,12 +172,18 @@ const Projects = ({
         <ItemDetail $darkmode={darkMode} className={styledLoaded}>
           <Subtitle text="DETAILS" />
           <Paragraph text={detailText} />
-          <Button title="Visiter le site" darkMode={darkMode} href={href} />
+          {visitBtn && (
+            <Button title={t("visit")} darkMode={darkMode} href={href} />
+          )}
         </ItemDetail>
         <ItemDetail $darkmode={darkMode} className={styledLoaded}>
           <Subtitle text="STACK" />
           <StackWrapper>
-            <Paragraph text={stack} />
+            <ul>
+              {stacks.map((stack, index) => (
+                <li key={index}>{stack}</li>
+              ))}
+            </ul>
           </StackWrapper>
         </ItemDetail>
         <ItemDetail $darkmode={darkMode} className={styledLoaded} />
@@ -171,6 +196,12 @@ const Projects = ({
           <Paragraph text={contextDetail} />
           <Subtitle text="PREVIEW" />
           <Image src={src} />
+          <ImageContainer>
+            {srcArray &&
+              srcArray.map((images, index) => (
+                <Image key={index} src={images} />
+              ))}
+          </ImageContainer>
         </ItemContext>
         <ItemContext $darkmode={darkMode} className={styledLoaded} />
         <ItemContext $darkmode={darkMode} className={styledLoaded} />

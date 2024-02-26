@@ -53,6 +53,7 @@ const GlobalStyles = styled.createGlobalStyle<{ darkMode?: boolean }>`
 
   p,
   a,
+  li,
   span,
   h1,
   h3,

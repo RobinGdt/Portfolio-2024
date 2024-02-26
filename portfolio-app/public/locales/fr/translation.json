@@ -8,9 +8,11 @@
   },
   "about": {
     "about": "À propos",
-    "description": "Bonjour, je suis un développeur  français, vivant entre Lyon et Paris. Passionné par le développement web et appli, j'adore explorer de nouvelles technologies web et je suis toujours en quête de nouvelles compétences à acquérir.",
+    "description": "Salut ! Moi c'est Robin, je suis un développeur  français vivant entre Lyon et Paris. Passionné par le développement web et appli, j'adore explorer de nouvelles technologies web et je suis toujours en quête de nouvelles compétences à acquérir.",
     "learn": "En savoir plus",
-    "detail": "Après 8 ans à jongler avec les boutons dans le monde de la production musicale, en tant que maestro des studios, j'ai décidé de switcher vers quelque chose de plus digital : le développement web. Adieu notes, bonjour codes ! C'est comme changer sa partition pour une nouvelle mélodie tech, et je suis prêt à créer des sites qui feront danser les lignes de code autant que les mélomanes. Let the web symphony begin! 🎶"
+    "detailpart1": "J'ai récemment complété avec succès mon Bachelor de trois ans à l'école HETIC, une expérience qui a consolidé mes compétences dans le domaine du numérique. ",
+    "detailpart2": "Au cours des deux dernières années, j'ai eu l'opportunité enrichissante de mettre en pratique mes connaissances en tant que développeur chez Alvie, une startup avant-gardiste spécialisée en science agronomique. Mon rôle s'est concentré sur le développement d'une application novatrice visant à réduire la pulvérisation de produits phytosanitaires.",
+    "detailpart3": " En tant que développeur React, React Native et Typescript, j'ai consacré deux ans à approfondir mes compétences tout en travaillant sur des projets concrets. L'application intègre un algorithme sophistiqué prenant en compte plus de 25 paramètres locaux pour optimiser l'efficacité tout en minimisant l'impact environnemental. Aujourd'hui, je suis animé par le désir d'explorer de nouvelles opportunités professionnelles."
   },
   "experience": {
     "title": "EXPERIENCE PRO",
@@ -27,17 +29,26 @@
       "detail": "Dine est un site designé pour des restaurants gastronomique dans lequel il est possible de réserver une table directement depuis celui-ci.",
       "context": "Ce site a été créé depuis un design système téléchargé sur la plateforme frontendmentor.io, codé en React et Typescript, utilisant des styled components et react hook form ."
     },
+    "hygo": {
+      "detail": "HygoTools est un une plateforme crée pour faciliter la modification et la recherche de données relatives aux produits phyto-sanitaires de l'application HYGO pour la start-up Alvie, projet interne initialement mis en place pour le docteur et les ingenieurs de l'entreprise n'ayant pas la main sur la base de donnée.",
+      "context": "Ce projet full-stack a constitué un véritable défi en raison de la complexité et de la sensibilité de la base de données. Depuis la conception initiale jusqu'à la mise en production du projet, j'ai pris en charge l'intégralité du processus, en m'occupant de l'expérience utilisateur, de l'interface utilisateur, du développement back-end avec Node.js et PostgresSQL, ainsi que du front-end avec React en utilisant TypeScript, incluant également la mise en production du système."
+    },
+    "photosnap": {
+      "detail": "Photosnap est un site marketing de création d'histoires et de partage de photos",
+      "context": "Ce projet a été créé depuis un design système téléchargé sur la plateforme frontendmentor.io, codé en React et Typescript, utilisant des styled components et react hook form ."
+    },
     "label": {
-      "perso": "Personal project",
-      "pro": "professional project"
+      "perso": "Projet personnel",
+      "pro": "Projet professionnel"
     }
   },
   "contact": {
     "email": "Envoyer un mail",
-    "phone": "Apeller"
+    "phone": "Appeller"
   },
   "errors": {
     "empty": "Ce champ ne peut pas être vide",
     "invalid": "Entrez un email valide"
-  }
+  },
+  "visit": "Visiter le site"
 }
