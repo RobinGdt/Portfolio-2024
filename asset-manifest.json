@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.cf58348a.js",
-    "static/js/453.f4fbaa6d.chunk.js": "/static/js/453.f4fbaa6d.chunk.js",
-    "static/media/photosnap-preview.webp": "/static/media/photosnap-preview.eb447741dddc5b49ac5f.webp",
-    "static/media/dine-preview.webp": "/static/media/dine-preview.59df1c31ebe0ac3a665e.webp",
-    "static/media/dine-image.png": "/static/media/dine-image.2a93defddc3256cece31.png",
-    "static/media/photosnap-image.webp": "/static/media/photosnap-image.e18f8e21007d1c0a8a4b.webp",
-    "static/media/puddle.svg": "/static/media/puddle.8d175cbdcd3cc5ad279560a42d2ef507.svg",
-    "static/media/champs.webp": "/static/media/champs.f3a234912c05706476ab.webp",
-    "static/media/hygo.webp": "/static/media/hygo.c4f86b37b2349ce6024c.webp",
-    "static/media/Dashboard-Search-Product-2.webp": "/static/media/Dashboard-Search-Product-2.2ee603294e14ff40c4de.webp",
-    "static/media/Dashboard-Edit-Product.webp": "/static/media/Dashboard-Edit-Product.bb13c79706f5ce8ba673.webp",
-    "static/media/Dashboard-Login-New-Design.webp": "/static/media/Dashboard-Login-New-Design.bb6c6e6d56b3bf6ad936.webp",
-    "static/media/Dashboard-Add-Product.webp": "/static/media/Dashboard-Add-Product.5d3d589900151c9d1bd4.webp",
-    "index.html": "/index.html",
-    "static/media/getFetch.cjs": "/static/media/getFetch.40f37ddea2378391108f.cjs",
-    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.cf58348a.js.map": "/static/js/main.cf58348a.js.map",
-    "453.f4fbaa6d.chunk.js.map": "/static/js/453.f4fbaa6d.chunk.js.map"
+    "main.css": "/Portfolio-2024/static/css/main.e6c13ad2.css",
+    "main.js": "/Portfolio-2024/static/js/main.8c38b900.js",
+    "static/js/453.f4fbaa6d.chunk.js": "/Portfolio-2024/static/js/453.f4fbaa6d.chunk.js",
+    "static/media/photosnap-preview.webp": "/Portfolio-2024/static/media/photosnap-preview.eb447741dddc5b49ac5f.webp",
+    "static/media/dine-preview.webp": "/Portfolio-2024/static/media/dine-preview.59df1c31ebe0ac3a665e.webp",
+    "static/media/dine-image.png": "/Portfolio-2024/static/media/dine-image.2a93defddc3256cece31.png",
+    "static/media/photosnap-image.webp": "/Portfolio-2024/static/media/photosnap-image.e18f8e21007d1c0a8a4b.webp",
+    "static/media/puddle.svg": "/Portfolio-2024/static/media/puddle.8d175cbdcd3cc5ad279560a42d2ef507.svg",
+    "static/media/champs.webp": "/Portfolio-2024/static/media/champs.f3a234912c05706476ab.webp",
+    "static/media/hygo.webp": "/Portfolio-2024/static/media/hygo.c4f86b37b2349ce6024c.webp",
+    "static/media/Dashboard-Search-Product-2.webp": "/Portfolio-2024/static/media/Dashboard-Search-Product-2.2ee603294e14ff40c4de.webp",
+    "static/media/Dashboard-Edit-Product.webp": "/Portfolio-2024/static/media/Dashboard-Edit-Product.bb13c79706f5ce8ba673.webp",
+    "static/media/Dashboard-Login-New-Design.webp": "/Portfolio-2024/static/media/Dashboard-Login-New-Design.bb6c6e6d56b3bf6ad936.webp",
+    "static/media/Dashboard-Add-Product.webp": "/Portfolio-2024/static/media/Dashboard-Add-Product.5d3d589900151c9d1bd4.webp",
+    "index.html": "/Portfolio-2024/index.html",
+    "static/media/getFetch.cjs": "/Portfolio-2024/static/media/getFetch.40f37ddea2378391108f.cjs",
+    "main.e6c13ad2.css.map": "/Portfolio-2024/static/css/main.e6c13ad2.css.map",
+    "main.8c38b900.js.map": "/Portfolio-2024/static/js/main.8c38b900.js.map",
+    "453.f4fbaa6d.chunk.js.map": "/Portfolio-2024/static/js/453.f4fbaa6d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.cf58348a.js"
+    "static/js/main.8c38b900.js"
   ]
 }
