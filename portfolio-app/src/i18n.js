@@ -15,7 +15,7 @@ i18n
       cache: ["cookie"],
     },
     backend: {
-      loadPath: "/locales/{{lng}}/{{ns}}.json", // Chemin correct vers les traductions
+      loadPath: "/Portfolio-2024/locales/{{lng}}/{{ns}}.json",
     },
     interpolation: {
       escapeValue: false,
