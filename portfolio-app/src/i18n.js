@@ -9,10 +9,13 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "en",
-    ebug: true,
+    debug: true,
     detection: {
       order: ["queryString", "cookie"],
       cache: ["cookie"],
+    },
+    backend: {
+      loadPath: "/locales/{{lng}}/{{ns}}.json", // Chemin correct vers les traductions
     },
     interpolation: {
       escapeValue: false,

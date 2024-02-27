@@ -74546,8 +74546,8 @@ code {
 
         var getDefaults = function getDefaults() {
           return {
-            loadPath: "/public/locales/{{lng}}/{{ns}}.json",
-            addPath: "/public/locales/add/{{lng}}/{{ns}}",
+            loadPath: "/locales/{{lng}}/{{ns}}.json",
+            addPath: "/locales/add/{{lng}}/{{ns}}",
             parse: function parse(data) {
               return JSON.parse(data);
             },
