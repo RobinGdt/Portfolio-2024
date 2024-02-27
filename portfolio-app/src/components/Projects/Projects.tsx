@@ -5,6 +5,9 @@ import Paragraph from "../../ui-components/Paragraph/Paragraph";
 import Subtitle from "../../ui-components/Subtitle/Subtitle";
 import Button from "../Button/Button";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import { Close } from "../../utils/icon";
+import Span from "../../ui-components/Span/Span";
 
 interface ProjectsProps {
   darkMode: boolean;
@@ -104,9 +107,9 @@ const ParagraphContainer = styled.div`
   border-radius: 40px;
   backdrop-filter: blur(20px);
 
-  p {
+  span {
     color: ${COLORS.WHITE[100]};
-    line-height: 0;
+    line-height: 30px;
     font-size: var(--16px);
   }
 `;
@@ -146,6 +149,19 @@ const Projects = ({
   const { t } = useTranslation();
   const styledLoaded = isLoaded ? "animate" : "";
 
+  const [enlarged, setEnlarged] = useState(false);
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
+
+  const handleImageClick = (imageSrc: string) => {
+    setEnlarged(true);
+    setEnlargedImage(imageSrc);
+  };
+
+  const closeEnlargedView = () => {
+    setEnlarged(false);
+    setEnlargedImage(null);
+  };
+
   return (
     <StyledProjects>
       {/*------------------ TITLE ------------------*/}
@@ -161,7 +177,7 @@ const Projects = ({
             <strong>{title}</strong>
           </h1>
           <ParagraphContainer>
-            <Paragraph text={projet} />
+            <Span text={projet} />
           </ParagraphContainer>
         </ItemTitle>
         <ItemTitle $darkmode={darkMode} className={styledLoaded} />
@@ -199,15 +215,29 @@ const Projects = ({
           <ImageContainer>
             {srcArray &&
               srcArray.map((images, index) => (
-                <Image key={index} src={images} />
+                <Image
+                  key={index}
+                  src={images}
+                  onClick={() => handleImageClick(images)}
+                />
               ))}
           </ImageContainer>
+
+          {/*------------------ ENLARGED IMAGE VIEW ------------------*/}
+          {enlarged && enlargedImage && (
+            <>
+              <div onClick={closeEnlargedView}>
+                <Close fill={COLORS.TANGERINE[100]} />
+              </div>
+              <Image src={enlargedImage} />
+            </>
+          )}
         </ItemContext>
         <ItemContext $darkmode={darkMode} className={styledLoaded} />
         <ItemContext $darkmode={darkMode} className={styledLoaded} />
         {/*------------------ OTHER PROJECTS ------------------*/}
         <ItemContext $darkmode={darkMode} className={`wrap ${styledLoaded}`}>
-          <Subtitle text="AUTRES PROJETS" />
+          <Subtitle text={t("projects.other")} />
           <ProjectsWrapper>
             <Project>{firstProject}</Project>
             <Project>{secondProject}</Project>

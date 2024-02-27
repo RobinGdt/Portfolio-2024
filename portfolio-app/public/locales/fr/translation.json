@@ -25,6 +25,7 @@
   },
   "projects": {
     "title": "PROJETS",
+    "other": "autres projets",
     "dine": {
       "detail": "Dine est un site designé pour des restaurants gastronomique dans lequel il est possible de réserver une table directement depuis celui-ci.",
       "context": "Ce site a été créé depuis un design système téléchargé sur la plateforme frontendmentor.io, codé en React et Typescript, utilisant des styled components et react hook form ."
