@@ -122,7 +122,7 @@ const Footer = ({ darkMode }: FooterProps): JSX.Element => {
           text={t("about.about")}
           strong={true}
           className="about"
-          href="/Home/about"
+          href="/Homepage/about"
         />
         <Span text={t("notice.legal")} strong={true} className="none" />
       </Item>
