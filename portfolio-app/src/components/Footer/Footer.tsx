@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import { Logo } from "../../utils/icon";
 import Span from "../../ui-components/Span/Span";
 import { useTranslation } from "react-i18next";
-// import { Link } from "react-router-dom";
-import Anchor from "../../ui-components/Anchor/Anchor";
+import { Link } from "react-router-dom";
 
 interface FooterProps {
   darkMode: boolean;
@@ -57,11 +56,6 @@ const LogoWrapper = styled.div<{ $darkmode?: boolean }>`
 
   span {
     cursor: pointer;
-  }
-
-  &.about {
-    color: ${(props) =>
-      props.$darkmode ? COLORS.TANGERINE[100] : COLORS.PEACH[100]};
   }
 
   &:hover {
@@ -118,12 +112,9 @@ const Footer = ({ darkMode }: FooterProps): JSX.Element => {
         </LogoWrapper>
       </Item>
       <Item className={styledLoaded} $darkmode={darkMode}>
-        <Anchor
-          text={t("about.about")}
-          strong={true}
-          className="about"
-          href="/Homepage/about"
-        />
+        <Link to="/About">
+          <Span text={t("about.about")} strong={true} />
+        </Link>
         <Span text={t("notice.legal")} strong={true} className="none" />
       </Item>
       <Item className={`none ${styledLoaded}`} $darkmode={darkMode}>
