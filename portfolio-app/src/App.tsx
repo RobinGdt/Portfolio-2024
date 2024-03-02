@@ -21,6 +21,9 @@ import photosnapPreview from "./assets/photosnap-preview.webp";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
 import About from "./components/About/About";
+import ReactGA from "react-ga";
+
+ReactGA.initialize("G-CKVRJTL03J");
 
 function App() {
   const { isLoaded, resetLoadingState } = useLoadingState();
@@ -41,6 +44,8 @@ function App() {
   window.addEventListener("popstate", () => {
     resetLoadingState();
   });
+
+  ReactGA.pageview(window.location.pathname);
   return (
     <>
       <GlobalStyle darkMode={darkMode} />
