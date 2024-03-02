@@ -6,8 +6,8 @@ import Subtitle from "../../ui-components/Subtitle/Subtitle";
 import Button from "../Button/Button";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
-import { Close } from "../../utils/icon";
 import Span from "../../ui-components/Span/Span";
+import { shadow } from "../../utils/keyframes";
 
 interface ProjectsProps {
   darkMode: boolean;
@@ -28,6 +28,41 @@ interface ProjectsProps {
 
 const StyledProjects = styled.div`
   width: 100%;
+`;
+
+const Modal = styled.div`
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1;
+`;
+const Overlay = styled(Modal)`
+  background: rgba(49, 49, 49, 0.8);
+`;
+const ModalContent = styled.div<{ $darkmode?: boolean }>`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 40%;
+  min-height: 50%;
+  transform: translate(-50%, -50%);
+  background-color: ${(props) =>
+    props.$darkmode ? COLORS.DARKSLATE[100] : COLORS.BLUISH[100]};
+  z-index: 2;
+  padding: 10px;
+  box-shadow: ${shadow};
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  @media (max-width: 1050px) {
+    width: 80%;
+    min-height: 0;
+  }
 `;
 
 const ProjectTitle = styled.div`
@@ -116,6 +151,7 @@ const ParagraphContainer = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  cursor: pointer;
 `;
 
 const ImageContainer = styled.div`
@@ -147,19 +183,17 @@ const Projects = ({
   visitBtn,
 }: ProjectsProps): JSX.Element => {
   const { t } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
   const styledLoaded = isLoaded ? "animate" : "";
 
-  const [enlarged, setEnlarged] = useState(false);
-  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
-
-  const handleImageClick = (imageSrc: string) => {
-    setEnlarged(true);
+  const openModal = (imageSrc: string) => {
     setEnlargedImage(imageSrc);
+    setIsModalOpen(true);
   };
 
-  const closeEnlargedView = () => {
-    setEnlarged(false);
-    setEnlargedImage(null);
+  const handleImageClick = (imageSrc: string) => {
+    openModal(imageSrc);
   };
 
   return (
@@ -211,7 +245,7 @@ const Projects = ({
           <Subtitle text="CONTEXTE" />
           <Paragraph text={contextDetail} />
           <Subtitle text="PREVIEW" />
-          <Image src={src} />
+          {src && <Image src={src} />}
           <ImageContainer>
             {srcArray &&
               srcArray.map((images, index) => (
@@ -224,13 +258,14 @@ const Projects = ({
           </ImageContainer>
 
           {/*------------------ ENLARGED IMAGE VIEW ------------------*/}
-          {enlarged && enlargedImage && (
-            <>
-              <div onClick={closeEnlargedView}>
-                <Close fill={COLORS.TANGERINE[100]} />
-              </div>
-              <Image src={enlargedImage} />
-            </>
+          {isModalOpen && (
+            <Overlay onClick={() => setIsModalOpen(false)}>
+              <ModalContent $darkmode={darkMode}>
+                <div onClick={() => setIsModalOpen(false)}></div>
+                {enlargedImage && <Image src={enlargedImage} />}
+                {/* Autres éléments de la modal ici */}
+              </ModalContent>
+            </Overlay>
           )}
         </ItemContext>
         <ItemContext $darkmode={darkMode} className={styledLoaded} />
