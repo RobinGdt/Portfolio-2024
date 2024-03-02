@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { AnimatedContainer } from "../../utils/constants";
 import { COLORS } from "../../utils/palette";
-import { useEffect, useState } from "react";
 import { Logo } from "../../utils/icon";
 import Span from "../../ui-components/Span/Span";
 import { useTranslation } from "react-i18next";
@@ -9,6 +8,7 @@ import { Link } from "react-router-dom";
 
 interface FooterProps {
   darkMode: boolean;
+  isLoaded: boolean;
 }
 
 const StyledFooter = styled.div`
@@ -91,14 +91,9 @@ const YearWrapper = styled.div`
   gap: 5%;
 `;
 
-const Footer = ({ darkMode }: FooterProps): JSX.Element => {
+const Footer = ({ darkMode, isLoaded }: FooterProps): JSX.Element => {
   const { t } = useTranslation();
-  const [isLoaded, setIsLoaded] = useState(false);
   const styledLoaded = isLoaded ? "animate" : "";
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
   return (
     <StyledFooter>
       <Item className={styledLoaded} $darkmode={darkMode} />
@@ -115,7 +110,6 @@ const Footer = ({ darkMode }: FooterProps): JSX.Element => {
         <Link to="/About">
           <Span text={t("about.about")} strong={true} />
         </Link>
-        <Span text={t("notice.legal")} strong={true} className="none" />
       </Item>
       <Item className={`none ${styledLoaded}`} $darkmode={darkMode}>
         <YearWrapper>

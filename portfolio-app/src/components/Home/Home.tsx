@@ -181,10 +181,7 @@ const Home = ({
           className={`item none puddle-item ${styledLoaded}`}
           $darkmode={darkMode}
         />
-        <Item
-          className={`item contact-item ${styledLoaded}`}
-          $darkmode={darkMode}
-        >
+        <Item className={styledLoaded} $darkmode={darkMode}>
           <Subtitle text="technos" />
           <TechnosWrapper>
             <JsLogo fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]} />

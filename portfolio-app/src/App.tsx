@@ -172,7 +172,7 @@ function App() {
           }
         />
       </Routes>
-      <Footer darkMode={darkMode} />
+      <Footer isLoaded={isLoaded} darkMode={darkMode} />
     </>
   );
 }
