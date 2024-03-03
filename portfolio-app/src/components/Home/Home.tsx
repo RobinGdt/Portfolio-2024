@@ -13,6 +13,18 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import FormContact from "../FormContact/FormContact";
 import { JsLogo, ReactLogo, TsLogo } from "../../utils/icon";
+import ReactGA from "react-ga4";
+import {
+  clickOnAlvie,
+  clickOnCall,
+  clickOnDine,
+  clickOnGithub,
+  clickOnHygo,
+  clickOnLearnMore,
+  clickOnLinkedin,
+  clickOnPhotosnap,
+  clickOnSendMail,
+} from "../../utils/ga4Events";
 
 interface HomeProps {
   darkMode: boolean;
@@ -144,18 +156,21 @@ const Home = ({
       projet: t("projects.label.pro"),
       image: project1,
       to: "/HygoTools",
+      logAnalytic: clickOnHygo,
     },
     {
       title: "DINE",
       projet: t("projects.label.perso"),
       image: dineImage,
       to: "/Dine",
+      logAnalytic: clickOnDine,
     },
     {
       title: "PHOTOSNAP",
       projet: t("projects.label.perso"),
       image: photosnapImage,
       to: "/Photosnap",
+      logAnalytic: clickOnPhotosnap,
     },
   ];
   return (
@@ -202,7 +217,10 @@ const Home = ({
             title={t("about.learn")}
             darkMode={darkMode}
             to="/about"
-            onClick={onClickLoading}
+            onClick={() => {
+              onClickLoading();
+              ReactGA.event(clickOnLearnMore);
+            }}
           />
         </Item>
         <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
@@ -213,11 +231,13 @@ const Home = ({
             title="GitHub"
             href="https://github.com/RobinGdt"
             darkMode={darkMode}
+            onClick={() => ReactGA.event(clickOnGithub)}
           />
           <Button
             title="Linkedin"
             href="https://www.linkedin.com/in/robin-godart-4847351b9/"
             darkMode={darkMode}
+            onClick={() => ReactGA.event(clickOnLinkedin)}
           />
         </Item>
         <Item className={styledLoaded} $darkmode={darkMode} />
@@ -231,7 +251,10 @@ const Home = ({
             label={t("experience.label")}
             darkMode={darkMode}
             to="/about"
-            onClick={onClickLoading}
+            onClick={() => {
+              onClickLoading();
+              ReactGA.event(clickOnAlvie);
+            }}
           />
         </Item>
         <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
@@ -248,7 +271,10 @@ const Home = ({
               projet={item.projet}
               key={index}
               to={item.to}
-              onClick={onClickLoading}
+              onClick={() => {
+                onClickLoading();
+                ReactGA.event(item.logAnalytic);
+              }}
             />
           ))}
         </Item>
@@ -266,12 +292,16 @@ const Home = ({
           <Button
             title={t("contact.email")}
             darkMode={darkMode}
-            onClick={toggleModal}
+            onClick={() => {
+              toggleModal();
+              ReactGA.event(clickOnSendMail);
+            }}
           />
           <Button
             title={t("contact.phone")}
             darkMode={darkMode}
             href="tel: +33782255092"
+            onClick={() => ReactGA.event(clickOnCall)}
           />
         </Item>
         <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />

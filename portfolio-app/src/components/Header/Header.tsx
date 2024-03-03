@@ -5,6 +5,8 @@ import { Logo, Moon, Sun } from "../../utils/icon";
 import SwitchLanguage from "../SwitchLanguage/SwitchLanguage";
 import Span from "../../ui-components/Span/Span";
 import { Link } from "react-router-dom";
+import ReactGA from "react-ga4";
+import { switchDarkmodeEvent } from "../../utils/ga4Events";
 
 interface HeaderProps {
   darkMode?: boolean;
@@ -134,6 +136,7 @@ const Header = ({
             onClick={() => {
               onClickDarkMode();
               onClickLoading();
+              ReactGA.event(switchDarkmodeEvent);
             }}
           >
             <Moon fill={fill} />

@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import Span from "../../ui-components/Span/Span";
 import ReactGA from "react-ga4";
+import { switchLanguageEvent } from "../../utils/ga4Events";
 
 interface SwitchLanguageProps {
   darkMode?: boolean;
@@ -45,11 +46,7 @@ const SwitchLanguage = ({ darkMode }: SwitchLanguageProps): JSX.Element => {
     i18n.changeLanguage(language);
     localStorage.setItem("selectedLanguage", language);
     setIsEnglish(language === "en");
-    ReactGA.event({
-      action: "switch_language",
-      category: "click",
-      label: "switch_language_label",
-    });
+    ReactGA.event(switchLanguageEvent);
   };
   return (
     <StyledSwitchLanguage>
