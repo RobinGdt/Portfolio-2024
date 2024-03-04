@@ -11,7 +11,7 @@ interface AnchorProps {
 }
 
 const AnchorWrapper = styled.div`
-  width: 200px;
+  width: 20%;
 `;
 
 const StyledAnchor = styled.a<{ $strong?: boolean }>`
