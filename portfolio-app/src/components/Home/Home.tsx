@@ -155,21 +155,21 @@ const Home = ({
       title: "HYGO TOOL",
       projet: t("projects.label.pro"),
       image: project1,
-      to: "/HygoTools",
+      to: "HygoTools",
       logAnalytic: clickOnHygo,
     },
     {
       title: "DINE",
       projet: t("projects.label.perso"),
       image: dineImage,
-      to: "/Dine",
+      to: "Dine",
       logAnalytic: clickOnDine,
     },
     {
       title: "PHOTOSNAP",
       projet: t("projects.label.perso"),
       image: photosnapImage,
-      to: "/Photosnap",
+      to: "Photosnap",
       logAnalytic: clickOnPhotosnap,
     },
   ];
@@ -216,7 +216,7 @@ const Home = ({
           <Button
             title={t("about.learn")}
             darkMode={darkMode}
-            to="/about"
+            to="about"
             onClick={() => {
               onClickLoading();
               ReactGA.event(clickOnLearnMore);

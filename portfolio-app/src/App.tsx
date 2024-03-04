@@ -62,7 +62,7 @@ function App() {
       />
       <Routes>
         <Route
-          path="/"
+          path=""
           element={
             <Home
               darkMode={darkMode}
@@ -72,11 +72,11 @@ function App() {
           }
         />
         <Route
-          path="/about"
+          path="about"
           element={<About darkMode={darkMode} isLoaded={isLoaded} />}
         />
         <Route
-          path="/HygoTools"
+          path="HygoTools"
           element={
             <Projects
               darkMode={darkMode}
@@ -93,7 +93,7 @@ function App() {
                   background={photosnapImage}
                   title={"Photosnap"}
                   projet={t("projects.label.pro")}
-                  to={"/Photosnap"}
+                  to={"Photosnap"}
                   onClick={resetLoadingState}
                 />
               }
@@ -102,7 +102,7 @@ function App() {
                   background={dineImage}
                   title={"Dine"}
                   projet={t("projects.label.perso")}
-                  to={"/Dine"}
+                  to={"Dine"}
                   onClick={resetLoadingState}
                 />
               }
@@ -110,7 +110,7 @@ function App() {
           }
         />
         <Route
-          path="/Dine"
+          path="Dine"
           element={
             <Projects
               darkMode={darkMode}
@@ -129,7 +129,7 @@ function App() {
                   background={champs}
                   title={"HygoTools"}
                   projet={t("projects.label.pro")}
-                  to={"/HygoTools"}
+                  to={"HygoTools"}
                   onClick={resetLoadingState}
                 />
               }
@@ -138,7 +138,7 @@ function App() {
                   background={photosnapImage}
                   title={"Photosnap"}
                   projet={t("projects.label.perso")}
-                  to={"/Photosnap"}
+                  to={"Photosnap"}
                   onClick={resetLoadingState}
                 />
               }
@@ -146,7 +146,7 @@ function App() {
           }
         />
         <Route
-          path="/Photosnap"
+          path="Photosnap"
           element={
             <Projects
               darkMode={darkMode}
@@ -163,7 +163,7 @@ function App() {
                   background={champs}
                   title={"HygoTools"}
                   projet={t("projects.label.pro")}
-                  to={"/HygoTools"}
+                  to={"HygoTools"}
                   onClick={resetLoadingState}
                 />
               }
@@ -172,7 +172,7 @@ function App() {
                   background={dineImage}
                   title={"Dine"}
                   projet={t("projects.label.perso")}
-                  to={"/Dine"}
+                  to={"Dine"}
                   onClick={resetLoadingState}
                 />
               }

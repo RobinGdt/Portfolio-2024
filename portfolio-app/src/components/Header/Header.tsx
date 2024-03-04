@@ -120,7 +120,7 @@ const Header = ({
     <SyledHeader>
       <Item className={styledLoaded} $darkmode={darkMode} />
       <Item className={styledLoaded} $darkmode={darkMode}>
-        <LogoWrapper to="/" onClick={onClickLoading}>
+        <LogoWrapper to="" onClick={onClickLoading}>
           <Logo
             fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]}
             stroke={darkMode ? COLORS.NIGHT[100] : COLORS.WHITE[100]}
