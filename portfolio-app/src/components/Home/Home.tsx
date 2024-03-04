@@ -216,7 +216,7 @@ const Home = ({
           <Button
             title={t("about.learn")}
             darkMode={darkMode}
-            to="about"
+            to="/about"
             onClick={() => {
               onClickLoading();
               ReactGA.event(clickOnLearnMore);
