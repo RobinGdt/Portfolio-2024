@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 import Span from "../../ui-components/Span/Span";
 import Paragraph from "../../ui-components/Paragraph/Paragraph";
 import hygo from "../../assets/hygo.webp";
+import Anchor from "../../ui-components/Anchor/Anchor";
+import { Download } from "../../utils/icon";
 
 interface AboutProps {
   darkMode: boolean;
@@ -73,6 +75,17 @@ const About = ({ darkMode, isLoaded }: AboutProps): JSX.Element => {
           <Paragraph text={t("about.detailpart1")} />
           <Paragraph text={t("about.detailpart2")} />
           <Paragraph text={t("about.detailpart3")} />
+          <Anchor
+            href="./cv-robin-godart-2024.pdf"
+            download="cv-robin-godart-2024.pdf"
+            text={t("about.download")}
+            strong={true}
+            icon={
+              <Download
+                fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]}
+              />
+            }
+          />
           <Img src={hygo} alt="hygo" />
         </Item>{" "}
         <Item className={styledLoaded} $darkmode={darkMode} />

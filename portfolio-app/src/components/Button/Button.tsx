@@ -12,6 +12,7 @@ interface ButtonProps {
   href?: string;
   onClick?: () => void;
   darkMode?: boolean;
+  target?: string;
 }
 
 const StyledButtonWithLabel = styled.div`
@@ -99,13 +100,14 @@ const Button = ({
   to,
   href,
   darkMode,
+  target,
   onClick,
 }: ButtonProps): JSX.Element => {
   return (
     <StyledButtonWithLabel>
       {label && <Label>{label}</Label>}
       {to ? (
-        <Link to={to}>
+        <Link to={to} target={target}>
           <StyledButton $darkmode={darkMode} onClick={onClick}>
             <Span text={title} />
             <Arrow className="arrow" />

@@ -250,7 +250,8 @@ const Home = ({
             title="Alvie"
             label={t("experience.label")}
             darkMode={darkMode}
-            to="/about"
+            to="https://www.alvie.fr/hygo"
+            target="blank"
             onClick={() => {
               onClickLoading();
               ReactGA.event(clickOnAlvie);

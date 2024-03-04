@@ -47,7 +47,7 @@ function App() {
   ReactGA.send({
     hitType: "pageview",
     page: window.location.pathname,
-    title: "Custom Title",
+    title: "Home Page",
   });
   return (
     <>
