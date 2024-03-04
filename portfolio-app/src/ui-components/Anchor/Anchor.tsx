@@ -7,10 +7,14 @@ interface AnchorProps {
   className?: string;
   href: string;
   download?: string;
-  icon?: ReactElement<any, any>;
+  icon?: ReactElement;
 }
 
-const StyledSpan = styled.a<{ $strong?: boolean }>`
+const AnchorWrapper = styled.div`
+  width: 200px;
+`;
+
+const StyledAnchor = styled.a<{ $strong?: boolean }>`
   font-weight: ${(props) => (props.$strong ? "900" : "400")};
   display: flex;
   align-items: center;
@@ -26,16 +30,18 @@ const Anchor = ({
   icon,
 }: AnchorProps): JSX.Element => {
   return (
-    <StyledSpan
-      $strong={strong}
-      className={className}
-      href={href}
-      download={download}
-      target="blank"
-    >
-      {text}
-      {icon && icon}
-    </StyledSpan>
+    <AnchorWrapper>
+      <StyledAnchor
+        $strong={strong}
+        className={className}
+        href={href}
+        download={download}
+        target="blank"
+      >
+        {text}
+        {icon && icon}
+      </StyledAnchor>
+    </AnchorWrapper>
   );
 };
 
