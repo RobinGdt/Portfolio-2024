@@ -14,7 +14,18 @@ const StyledCustomCursor = styled.div`
   bottom: 0;
 `;
 
-const Pointer = styled.div<{ $darkmode: boolean }>``;
+const Pointer = styled.div<{ $darkmode?: boolean }>`
+  position: absolute;
+  z-index: -1;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(8em);
+  transition: transform 0.1s ease;
+  background-color: ${(props) =>
+    props.$darkmode ? `${COLORS.PEACH[100]}` : `${COLORS.TANGERINE[100]}`};
+`;
 
 const CustomCursor = ({ darkMode }: CustomCursorProps) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -31,21 +42,11 @@ const CustomCursor = ({ darkMode }: CustomCursorProps) => {
     };
   }, []);
 
-  console.log(darkMode);
-
   return (
     <StyledCustomCursor>
       <Pointer
         $darkmode={darkMode}
         style={{
-          position: "absolute",
-          zIndex: -1,
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
-          pointerEvents: "none",
-          filter: `blur(5em)`,
-          backgroundColor: `darkMode ?${COLORS.PEACH[100]} : ${COLORS.TANGERINE[100]}`,
           transform: `translate(${mousePosition.x - 200}px, ${
             mousePosition.y - 200
           }px)`,
