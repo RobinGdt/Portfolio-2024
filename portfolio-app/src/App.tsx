@@ -84,6 +84,7 @@ function App() {
                 darkMode={darkMode}
                 visitBtn={true}
                 link="https://metamask.io/download/"
+                linkName="Metamask"
                 isLoaded={isLoaded}
                 title="Secret Email"
                 background={secretEmail}
