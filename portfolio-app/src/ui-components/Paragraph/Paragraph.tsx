@@ -18,7 +18,11 @@ const Paragraph = ({ text, strong, link }: ParagraphProps): JSX.Element => {
   return (
     <StyledParagraph $strong={strong}>
       {text}
-      {link && <a href={link}>{link}</a>}
+      {link && (
+        <a href={link} target="blank">
+          {link}
+        </a>
+      )}
     </StyledParagraph>
   );
 };
