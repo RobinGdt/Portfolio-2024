@@ -24,6 +24,7 @@ interface ProjectsProps {
   srcArray?: string[];
   href?: string;
   visitBtn?: boolean;
+  link?: string;
 }
 
 const StyledProjects = styled.div`
@@ -188,6 +189,7 @@ const Projects = ({
   firstProject,
   secondProject,
   visitBtn,
+  link,
 }: ProjectsProps): JSX.Element => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -231,7 +233,7 @@ const Projects = ({
           className={`${styledLoaded} left-details`}
         >
           <Subtitle text="DETAILS" />
-          <Paragraph text={detailText} />
+          <Paragraph text={detailText} link={link}></Paragraph>
           {visitBtn && (
             <Button title={t("visit")} darkMode={darkMode} href={href} />
           )}

@@ -54,7 +54,7 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   }
 `;
 
-const LogoWrapper = styled(Link)`
+const LogoWrapper = styled(Link)<{ $darkmode?: boolean }>`
   width: 100%;
   display: flex;
   align-items: center;
@@ -64,12 +64,14 @@ const LogoWrapper = styled(Link)`
   &:hover {
     svg {
       rect {
-        fill: ${COLORS.PEACH[100]};
+        fill: ${(props) =>
+          props.$darkmode ? COLORS.PEACH[100] : COLORS.TANGERINE[100]};
         transition: fill 300ms ease-out;
       }
     }
     span {
-      color: ${COLORS.PEACH[100]};
+      color: ${(props) =>
+        props.$darkmode ? COLORS.PEACH[100] : COLORS.TANGERINE[100]};
       transition: color 300ms ease-out;
     }
   }
@@ -93,12 +95,13 @@ const LogoWrapper = styled(Link)`
   }
 `;
 
-const SvgContainer = styled.div`
+const SvgContainer = styled.div<{ $darkmode?: boolean }>`
   cursor: pointer;
   &:hover {
     svg {
       path {
-        stroke: ${COLORS.PEACH[100]};
+        stroke: ${(props) =>
+          props.$darkmode ? COLORS.PEACH[100] : COLORS.TANGERINE[100]};
       }
     }
   }
@@ -122,7 +125,7 @@ const Header = ({
     <SyledHeader>
       <Item className={styledLoaded} $darkmode={darkMode} />
       <Item className={styledLoaded} $darkmode={darkMode}>
-        <LogoWrapper to="" onClick={onClickLoading}>
+        <LogoWrapper to="" onClick={onClickLoading} $darkmode={darkMode}>
           <Logo
             fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]}
             stroke={darkMode ? COLORS.NIGHT[100] : COLORS.WHITE[100]}

@@ -32,8 +32,8 @@
       "context": "Ce site a été créé depuis un design système téléchargé sur la plateforme frontendmentor.io, codé en React et Typescript, utilisant des styled components et react hook form ."
     },
     "hygo": {
-      "detail": "HygoTools est un une plateforme crée pour faciliter la modification et la recherche de données relatives aux produits phyto-sanitaires de l'application HYGO pour la start-up Alvie, projet interne initialement mis en place pour le docteur et les ingenieurs de l'entreprise n'ayant pas la main sur la base de donnée.",
-      "context": "Ce projet full-stack a constitué un véritable défi en raison de la complexité et de la sensibilité de la base de données. Depuis la conception initiale jusqu'à la mise en production du projet, j'ai pris en charge l'intégralité du processus, en m'occupant de l'expérience utilisateur, de l'interface utilisateur, du développement back-end avec Node.js et PostgresSQL, ainsi que du front-end avec React en utilisant TypeScript, incluant également la mise en production du système."
+      "detail": "Pour exécuter cette application, vous devez ajouter l'extension Metamask pour Chrome. Lien : ",
+      "context": "Secret Email est une application Web3 qui exploite la technologie de la blockchain et les contrats intelligents. Elle permet aux entreprises de contacter leurs utilisateurs par e-mail tout en préservant leur confidentialité. Grâce à son intégration avec Metamask, un portefeuille blockchain et une extension de navigateur populaires, les utilisateurs peuvent autoriser en toute sécurité l'accès à leurs adresses e-mail protégées. Cette interconnexion avec Metamask garantit une expérience fluide et fiable pour les utilisateurs, tandis que les contrats intelligents fournissent le cadre sous-jacent pour la gestion sécurisée des données et la communication entre les utilisateurs et les entreprises. Avec Secret Email, la confidentialité et la sécurité sont prioritaires, permettant une communication confidentielle et chiffrée au sein de l'écosystème Web3."
     },
     "photosnap": {
       "detail": "Photosnap est un site marketing de création d'histoires et de partage de photos.",

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Button from "../Button/Button";
 import Subtitle from "../../ui-components/Subtitle/Subtitle";
 import Paragraph from "../../ui-components/Paragraph/Paragraph";
-import project1 from "../../assets/champs.webp";
+import secretEmail from "../../assets/secret-email.webp";
 import dineImage from "../../assets/dine-image.png";
 import photosnapImage from "../../assets/photosnap-image.webp";
 import ProjectCard from "../ProjectCard/ProjectCard";
@@ -156,10 +156,10 @@ const Home = ({
 
   const projectData = [
     {
-      title: "HYGO TOOL",
+      title: "SECRET EMAIL",
       projet: t("projects.label.pro"),
-      image: project1,
-      to: "HygoTools",
+      image: secretEmail,
+      to: "SecretEmail",
       logAnalytic: clickOnHygo,
     },
     {
@@ -292,8 +292,8 @@ const Home = ({
         <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
 
         <Item className={styledLoaded} $darkmode={darkMode} />
-        <Item>
-          <Item className={styledLoaded} $darkmode={darkMode} id="contact-item">
+        <Item className={styledLoaded} $darkmode={darkMode}>
+          <Item $darkmode={darkMode} id="contact-item">
             <Subtitle text="CONTACT" />
             <Button
               title={t("contact.email")}

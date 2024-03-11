@@ -9,14 +9,13 @@ import Footer from "./components/Footer/Footer";
 import { Route, Routes } from "react-router-dom";
 import { useLoadingState } from "./customHooks/useLoadingEffect";
 import Projects from "./components/Projects/Projects";
-import champs from "./assets/champs.webp";
+import secretEmail from "./assets/secret-email.webp";
 import dineImage from "./assets/dine-image.png";
 import photosnapImage from "./assets/photosnap-image.webp";
 import dinePreview from "./assets/dine-preview.webp";
-import login from "./assets/Dashboard-Login-New-Design.webp";
-import add from "./assets/Dashboard-Add-Product.webp";
-import edit from "./assets/Dashboard-Edit-Product.webp";
-import search from "./assets/Dashboard-Search-Product-2.webp";
+import access from "./assets/access.webp";
+import email from "./assets/email.webp";
+import share from "./assets/share.webp";
 import photosnapPreview from "./assets/photosnap-preview.webp";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
@@ -52,7 +51,7 @@ function App() {
   });
   return (
     <>
-      <CustomCursor />
+      <CustomCursor darkMode={darkMode} />
       <div className="App">
         <GlobalStyle darkMode={darkMode} />
         <Typography />
@@ -79,23 +78,26 @@ function App() {
             element={<About darkMode={darkMode} isLoaded={isLoaded} />}
           />
           <Route
-            path="HygoTools"
+            path="SecretEmail"
             element={
               <Projects
                 darkMode={darkMode}
+                visitBtn={true}
+                link="https://metamask.io/download/"
                 isLoaded={isLoaded}
-                title="HygoTools"
-                background={champs}
+                title="Secret Email"
+                background={secretEmail}
                 projet={t("projects.label.pro")}
+                href="https://robingdt.github.io/iExec-Technical-Test/#/authorize?user=0xF048eF3d7E3B33A465E0599E641BB29421f7Df92"
                 detailText={t("projects.hygo.detail")}
                 contextDetail={t("projects.hygo.context")}
-                stacks={["React", "Typescript", "NodeJs", "PostgresSQL"]}
-                srcArray={[login, add, search, edit]}
+                stacks={["React", "Typescript", "ViteJs", "iexec library"]}
+                srcArray={[access, email, share]}
                 firstProject={
                   <ProjectCard
                     background={photosnapImage}
                     title={"Photosnap"}
-                    projet={t("projects.label.pro")}
+                    projet={t("projects.label.perso")}
                     to={"/Photosnap"}
                     onClick={resetLoadingState}
                   />
@@ -129,8 +131,8 @@ function App() {
                 src={dinePreview}
                 firstProject={
                   <ProjectCard
-                    background={champs}
-                    title={"HygoTools"}
+                    background={secretEmail}
+                    title={"SecretEmail"}
                     projet={t("projects.label.pro")}
                     to={"/HygoTools"}
                     onClick={resetLoadingState}
@@ -163,8 +165,8 @@ function App() {
                 src={photosnapPreview}
                 firstProject={
                   <ProjectCard
-                    background={champs}
-                    title={"HygoTools"}
+                    background={secretEmail}
+                    title={"SecretEmail"}
                     projet={t("projects.label.pro")}
                     to={"/HygoTools"}
                     onClick={resetLoadingState}

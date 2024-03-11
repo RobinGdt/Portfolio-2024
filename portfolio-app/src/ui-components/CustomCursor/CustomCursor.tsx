@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { COLORS } from "../../utils/palette";
+
+interface CustomCursorProps {
+  darkMode: boolean;
+}
 
 const StyledCustomCursor = styled.div`
   position: fixed;
@@ -9,7 +14,9 @@ const StyledCustomCursor = styled.div`
   bottom: 0;
 `;
 
-const CustomCursor = () => {
+const Pointer = styled.div<{ $darkmode: boolean }>``;
+
+const CustomCursor = ({ darkMode }: CustomCursorProps) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -24,9 +31,12 @@ const CustomCursor = () => {
     };
   }, []);
 
+  console.log(darkMode);
+
   return (
     <StyledCustomCursor>
-      <div
+      <Pointer
+        $darkmode={darkMode}
         style={{
           position: "absolute",
           zIndex: -1,
@@ -34,8 +44,8 @@ const CustomCursor = () => {
           height: "400px",
           borderRadius: "50%",
           pointerEvents: "none",
-          filter: "blur(8em)",
-          backgroundColor: "red",
+          filter: `blur(5em)`,
+          backgroundColor: `darkMode ?${COLORS.PEACH[100]} : ${COLORS.TANGERINE[100]}`,
           transform: `translate(${mousePosition.x - 200}px, ${
             mousePosition.y - 200
           }px)`,

@@ -32,8 +32,8 @@
       "context": "This website was created from a system design downloaded from the frontendmentor.io platform, coded in React and TypeScript, using styled components and react-hook-form."
     },
     "hygo": {
-      "detail": "HygoTools is a platform created to simplify the modification and the research of data related to phytosanitary products in the HYGO application, an internal project initially established for the company's doctor and engineers who do not have direct access to the database.",
-      "context": "This full-stack project has been a real challenge due to the complexity and sensitivity of the database. From the initial frames to the project's production deployment, I took full control, handling the UX, UI, back-end in Node.js and PostgresSQL, and the front-end in React with TypeScript, including the deployment to production."
+      "detail": "To run this app you need to add the Metamask Chrome Extension. Link: ",
+      "context": "Secret Email is a Web3 application that leverages the power of blockchain technology and smart contracts. It enables companies to contact their users via email without compromising their privacy. Through integration with Metamask, a popular blockchain wallet and browser extension, users can securely authorize access to their protected email addresses. This interconnection with Metamask ensures a seamless and trusted experience for users, while smart contracts provide the underlying framework for secure data handling and communication between users and businesses. With Secret Email, privacy and security are prioritized, allowing for confidential and encrypted communication within the Web3 ecosystem."
     },
     "photosnap": {
       "detail": "Photosnap is a marketing website for creating stories and sharing photos.",
