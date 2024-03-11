@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Portfolio-2024/static/css/main.e6c13ad2.css",
-    "main.js": "/Portfolio-2024/static/js/main.36cb6bdc.js",
+    "main.css": "/Portfolio-2024/static/css/main.e216274c.css",
+    "main.js": "/Portfolio-2024/static/js/main.21d871c3.js",
     "static/js/453.f4fbaa6d.chunk.js": "/Portfolio-2024/static/js/453.f4fbaa6d.chunk.js",
     "static/media/photosnap-preview.webp": "/Portfolio-2024/static/media/photosnap-preview.eb447741dddc5b49ac5f.webp",
     "static/media/dine-preview.webp": "/Portfolio-2024/static/media/dine-preview.59df1c31ebe0ac3a665e.webp",
@@ -16,12 +16,12 @@
     "static/media/Dashboard-Add-Product.webp": "/Portfolio-2024/static/media/Dashboard-Add-Product.5d3d589900151c9d1bd4.webp",
     "index.html": "/Portfolio-2024/index.html",
     "static/media/getFetch.cjs": "/Portfolio-2024/static/media/getFetch.40f37ddea2378391108f.cjs",
-    "main.e6c13ad2.css.map": "/Portfolio-2024/static/css/main.e6c13ad2.css.map",
-    "main.36cb6bdc.js.map": "/Portfolio-2024/static/js/main.36cb6bdc.js.map",
+    "main.e216274c.css.map": "/Portfolio-2024/static/css/main.e216274c.css.map",
+    "main.21d871c3.js.map": "/Portfolio-2024/static/js/main.21d871c3.js.map",
     "453.f4fbaa6d.chunk.js.map": "/Portfolio-2024/static/js/453.f4fbaa6d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.36cb6bdc.js"
+    "static/css/main.e216274c.css",
+    "static/js/main.21d871c3.js"
   ]
 }
