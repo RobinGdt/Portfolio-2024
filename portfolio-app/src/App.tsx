@@ -22,6 +22,7 @@ import { useTranslation } from "react-i18next";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
 import About from "./components/About/About";
 import ReactGA from "react-ga4";
+import CustomCursor from "./ui-components/CustomCursor/CustomCursor";
 
 ReactGA.initialize("G-CKVRJTL03J");
 
@@ -51,136 +52,139 @@ function App() {
   });
   return (
     <>
-      <GlobalStyle darkMode={darkMode} />
-      <Typography />
-      <Header
-        darkMode={darkMode}
-        isLoaded={isLoaded}
-        fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]}
-        onClickLoading={resetLoadingState}
-        onClickDarkMode={toggleDarkMode}
-      />
-      <Routes>
-        <Route
-          path=""
-          element={
-            <Home
-              darkMode={darkMode}
-              isLoaded={isLoaded}
-              onClickLoading={resetLoadingState}
-            />
-          }
+      <CustomCursor />
+      <div className="App">
+        <GlobalStyle darkMode={darkMode} />
+        <Typography />
+        <Header
+          darkMode={darkMode}
+          isLoaded={isLoaded}
+          fill={darkMode ? COLORS.WHITE[100] : COLORS.NIGHT[100]}
+          onClickLoading={resetLoadingState}
+          onClickDarkMode={toggleDarkMode}
         />
-        <Route
-          path="about"
-          element={<About darkMode={darkMode} isLoaded={isLoaded} />}
-        />
-        <Route
-          path="HygoTools"
-          element={
-            <Projects
-              darkMode={darkMode}
-              isLoaded={isLoaded}
-              title="HygoTools"
-              background={champs}
-              projet={t("projects.label.pro")}
-              detailText={t("projects.hygo.detail")}
-              contextDetail={t("projects.hygo.context")}
-              stacks={["React", "Typescript", "NodeJs", "PostgresSQL"]}
-              srcArray={[login, add, search, edit]}
-              firstProject={
-                <ProjectCard
-                  background={photosnapImage}
-                  title={"Photosnap"}
-                  projet={t("projects.label.pro")}
-                  to={"/Photosnap"}
-                  onClick={resetLoadingState}
-                />
-              }
-              secondProject={
-                <ProjectCard
-                  background={dineImage}
-                  title={"Dine"}
-                  projet={t("projects.label.perso")}
-                  to={"/Dine"}
-                  onClick={resetLoadingState}
-                />
-              }
-            />
-          }
-        />
-        <Route
-          path="Dine"
-          element={
-            <Projects
-              darkMode={darkMode}
-              isLoaded={isLoaded}
-              title="Dine"
-              visitBtn={true}
-              href="http://robingdt.github.io/Dine"
-              background={dineImage}
-              projet={t("projects.label.perso")}
-              detailText={t("projects.dine.detail")}
-              contextDetail={t("projects.dine.context")}
-              stacks={["React", "Typescript"]}
-              src={dinePreview}
-              firstProject={
-                <ProjectCard
-                  background={champs}
-                  title={"HygoTools"}
-                  projet={t("projects.label.pro")}
-                  to={"/HygoTools"}
-                  onClick={resetLoadingState}
-                />
-              }
-              secondProject={
-                <ProjectCard
-                  background={photosnapImage}
-                  title={"Photosnap"}
-                  projet={t("projects.label.perso")}
-                  to={"/Photosnap"}
-                  onClick={resetLoadingState}
-                />
-              }
-            />
-          }
-        />
-        <Route
-          path="Photosnap"
-          element={
-            <Projects
-              darkMode={darkMode}
-              isLoaded={isLoaded}
-              title="Photosnap"
-              background={photosnapImage}
-              projet={t("projects.label.perso")}
-              detailText={t("projects.photosnap.detail")}
-              contextDetail={t("projects.photosnap.context")}
-              stacks={["React", "Typescript"]}
-              src={photosnapPreview}
-              firstProject={
-                <ProjectCard
-                  background={champs}
-                  title={"HygoTools"}
-                  projet={t("projects.label.pro")}
-                  to={"/HygoTools"}
-                  onClick={resetLoadingState}
-                />
-              }
-              secondProject={
-                <ProjectCard
-                  background={dineImage}
-                  title={"Dine"}
-                  projet={t("projects.label.perso")}
-                  to={"/Dine"}
-                  onClick={resetLoadingState}
-                />
-              }
-            />
-          }
-        />
-      </Routes>
-      <Footer isLoaded={isLoaded} darkMode={darkMode} />
+        <Routes>
+          <Route
+            path=""
+            element={
+              <Home
+                darkMode={darkMode}
+                isLoaded={isLoaded}
+                onClickLoading={resetLoadingState}
+              />
+            }
+          />
+          <Route
+            path="about"
+            element={<About darkMode={darkMode} isLoaded={isLoaded} />}
+          />
+          <Route
+            path="HygoTools"
+            element={
+              <Projects
+                darkMode={darkMode}
+                isLoaded={isLoaded}
+                title="HygoTools"
+                background={champs}
+                projet={t("projects.label.pro")}
+                detailText={t("projects.hygo.detail")}
+                contextDetail={t("projects.hygo.context")}
+                stacks={["React", "Typescript", "NodeJs", "PostgresSQL"]}
+                srcArray={[login, add, search, edit]}
+                firstProject={
+                  <ProjectCard
+                    background={photosnapImage}
+                    title={"Photosnap"}
+                    projet={t("projects.label.pro")}
+                    to={"/Photosnap"}
+                    onClick={resetLoadingState}
+                  />
+                }
+                secondProject={
+                  <ProjectCard
+                    background={dineImage}
+                    title={"Dine"}
+                    projet={t("projects.label.perso")}
+                    to={"/Dine"}
+                    onClick={resetLoadingState}
+                  />
+                }
+              />
+            }
+          />
+          <Route
+            path="Dine"
+            element={
+              <Projects
+                darkMode={darkMode}
+                isLoaded={isLoaded}
+                title="Dine"
+                visitBtn={true}
+                href="http://robingdt.github.io/Dine"
+                background={dineImage}
+                projet={t("projects.label.perso")}
+                detailText={t("projects.dine.detail")}
+                contextDetail={t("projects.dine.context")}
+                stacks={["React", "Typescript"]}
+                src={dinePreview}
+                firstProject={
+                  <ProjectCard
+                    background={champs}
+                    title={"HygoTools"}
+                    projet={t("projects.label.pro")}
+                    to={"/HygoTools"}
+                    onClick={resetLoadingState}
+                  />
+                }
+                secondProject={
+                  <ProjectCard
+                    background={photosnapImage}
+                    title={"Photosnap"}
+                    projet={t("projects.label.perso")}
+                    to={"/Photosnap"}
+                    onClick={resetLoadingState}
+                  />
+                }
+              />
+            }
+          />
+          <Route
+            path="Photosnap"
+            element={
+              <Projects
+                darkMode={darkMode}
+                isLoaded={isLoaded}
+                title="Photosnap"
+                background={photosnapImage}
+                projet={t("projects.label.perso")}
+                detailText={t("projects.photosnap.detail")}
+                contextDetail={t("projects.photosnap.context")}
+                stacks={["React", "Typescript"]}
+                src={photosnapPreview}
+                firstProject={
+                  <ProjectCard
+                    background={champs}
+                    title={"HygoTools"}
+                    projet={t("projects.label.pro")}
+                    to={"/HygoTools"}
+                    onClick={resetLoadingState}
+                  />
+                }
+                secondProject={
+                  <ProjectCard
+                    background={dineImage}
+                    title={"Dine"}
+                    projet={t("projects.label.perso")}
+                    to={"/Dine"}
+                    onClick={resetLoadingState}
+                  />
+                }
+              />
+            }
+          />
+        </Routes>
+        <Footer isLoaded={isLoaded} darkMode={darkMode} />
+      </div>
     </>
   );
 }

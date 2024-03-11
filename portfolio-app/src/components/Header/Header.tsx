@@ -22,6 +22,9 @@ const SyledHeader = styled.div`
   grid-template-columns: 1fr 4.2fr 4.2fr 4fr 1fr;
   grid-template-rows: 1fr;
   min-width: 350px;
+  grid-column-gap: 0.5px;
+  grid-row-gap: 0.5px;
+  grid-gap: transparent;
 
   @media (max-width: 1050px) {
     grid-template-columns: 1fr 5.1fr 7.1fr 1fr;
@@ -32,10 +35,8 @@ const SyledHeader = styled.div`
 `;
 
 const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
-  border: ${(props) =>
-    props.$darkmode
-      ? `0.3px solid ${COLORS.DARKSLATE[100]}`
-      : `0.3px solid ${COLORS.SKY[100]}`};
+  background-color: ${(props) =>
+    props.$darkmode ? "#061423" : COLORS.BLUISH[100]};
   padding: 15px 40px 15px 40px;
   position: relative;
   font-size: 30px;
@@ -43,6 +44,7 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   text-align: left;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0.5px;
 
   @media (max-width: 1050px) {
     padding: 5px 15px 5px 15px;

@@ -33,6 +33,10 @@ const GlobalStyles = styled.createGlobalStyle<{ darkMode?: boolean }>`
   #root {
     height: 100%;
   }
+  .item {
+    background-color: ${(props) =>
+      props.darkMode ? "#061423" : COLORS.BLUISH[100]};
+  }
   ::selection {
     background-color: ${(props) =>
       props.darkMode ? COLORS.PEACH[100] : COLORS.TANGERINE[100]};
@@ -48,7 +52,7 @@ const GlobalStyles = styled.createGlobalStyle<{ darkMode?: boolean }>`
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     background-color: ${(props) =>
-      props.darkMode ? "#061423" : COLORS.BLUISH[100]};
+      props.darkMode ? `${COLORS.DARKSLATE[100]}` : `${COLORS.SKY[100]}`};
   }
 
   p,

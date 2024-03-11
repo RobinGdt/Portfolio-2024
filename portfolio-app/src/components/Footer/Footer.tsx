@@ -16,6 +16,9 @@ const StyledFooter = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr 4.4fr 4fr 1fr;
   grid-template-rows: 1fr;
+  grid-column-gap: 0.5px;
+  grid-row-gap: 0.5px;
+  grid-gap: transparent;
 
   @media (max-width: 1050px) {
     grid-template-columns: 1fr 5.1fr 7.1fr 1fr;
@@ -26,10 +29,8 @@ const StyledFooter = styled.div`
 `;
 
 const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
-  border: ${(props) =>
-    props.$darkmode
-      ? `0.3px solid ${COLORS.DARKSLATE[100]}`
-      : `0.3px solid ${COLORS.SKY[100]}`};
+  background-color: ${(props) =>
+    props.$darkmode ? "#061423" : COLORS.BLUISH[100]};
   padding: 15px 40px 15px 40px;
   position: relative;
   font-size: 30px;
@@ -37,6 +38,7 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   text-align: left;
   justify-content: space-between;
   align-items: center;
+  margin-top: 0.5px;
 
   @media (max-width: 1050px) {
     padding: 5px 15px 5px 15px;
@@ -107,7 +109,7 @@ const Footer = ({ darkMode, isLoaded }: FooterProps): JSX.Element => {
         </LogoWrapper>
       </Item>
       <Item className={styledLoaded} $darkmode={darkMode}>
-        <Link to="/About">
+        <Link to="About">
           <Span text={t("about.about")} strong={true} />
         </Link>
       </Item>

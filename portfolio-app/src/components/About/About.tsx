@@ -23,13 +23,14 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 12.4fr 1fr;
   grid-template-rows: repeat(4fr);
+  grid-column-gap: 0.5px;
+  grid-row-gap: 0.5px;
+  grid-gap: transparent;
 `;
 
 const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
-  border: ${(props) =>
-    props.$darkmode
-      ? `0.3px solid ${COLORS.DARKSLATE[100]}`
-      : `0.3px solid ${COLORS.SKY[100]}`};
+  background-color: ${(props) =>
+    props.$darkmode ? "#061423" : COLORS.BLUISH[100]};
   padding: 40px;
   font-size: 30px;
   gap: 24px;
@@ -37,6 +38,8 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   flex-direction: column;
   text-align: left;
   justify-content: space-between;
+  margin-bottom: 0.5px;
+  margin-top: 0.5px;
 
   @media (max-width: 1050px) {
     padding: 15px;

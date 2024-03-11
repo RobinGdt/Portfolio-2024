@@ -69,16 +69,17 @@ const ProjectTitle = styled.div`
   display: grid;
   grid-template-columns: 1fr 12.4fr 1fr;
   grid-template-rows: 4fr;
+  grid-column-gap: 0.5px;
+  grid-row-gap: 0.5px;
+  grid-gap: transparent;
 `;
 
 const ItemTitle = styled(AnimatedContainer)<{
   $darkmode?: boolean;
   $background?: string;
 }>`
-  border: ${(props) =>
-    props.$darkmode
-      ? `0.3px solid ${COLORS.DARKSLATE[100]}`
-      : `0.3px solid ${COLORS.SKY[100]}`};
+  background-color: ${(props) =>
+    props.$darkmode ? "#061423" : COLORS.BLUISH[100]};
   background-image: url(${(props) => props.$background});
   background-size: cover;
   background-position: center;
@@ -86,6 +87,8 @@ const ItemTitle = styled(AnimatedContainer)<{
   justify-content: space-between;
   align-items: center;
   padding: 40px;
+  margin-bottom: 0.5px;
+  margin-top: 0.5px;
   h1 {
     color: ${COLORS.WHITE[100]};
     margin-top: 50px;
@@ -106,8 +109,12 @@ const ItemDetail = styled(ItemTitle)`
   flex-direction: column;
   align-items: flex-start;
   padding: 40px;
+
   @media (max-width: 1050px) {
     padding: 15px;
+  }
+  &.left-details {
+    margin-right: 1px;
   }
 `;
 
@@ -219,7 +226,10 @@ const Projects = ({
       {/*------------------ DETAILS ------------------*/}
       <ProjectDetails>
         <ItemDetail $darkmode={darkMode} className={styledLoaded} />
-        <ItemDetail $darkmode={darkMode} className={styledLoaded}>
+        <ItemDetail
+          $darkmode={darkMode}
+          className={`${styledLoaded} left-details`}
+        >
           <Subtitle text="DETAILS" />
           <Paragraph text={detailText} />
           {visitBtn && (

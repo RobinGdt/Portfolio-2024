@@ -40,9 +40,10 @@ const Section = styled.section`
   display: grid;
   grid-template-columns: 1fr 8.4fr 4fr 1fr;
   grid-template-rows: repeat(1fr, 4fr, 4fr, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
   min-width: 350px;
+  grid-column-gap: 0.5px;
+  grid-row-gap: 0.5px;
+  grid-gap: transparent;
 
   .display {
     display: none;
@@ -64,9 +65,10 @@ const CustomSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 4fr 8.4fr 1fr;
   grid-template-rows: repeat(1fr, 4fr, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
   min-width: 350px;
+  grid-column-gap: 0.5px;
+  grid-row-gap: 0.5px;
+  grid-gap: transparent;
 
   .display {
     display: none;
@@ -98,10 +100,8 @@ const Title = styled.div`
 `;
 
 const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
-  border: ${(props) =>
-    props.$darkmode
-      ? `0.3px solid ${COLORS.DARKSLATE[100]}`
-      : `0.3px solid ${COLORS.SKY[100]}`};
+  background-color: ${(props) =>
+    props.$darkmode ? "#061423" : COLORS.BLUISH[100]};
   padding: 40px;
   font-size: 30px;
   gap: 24px;
@@ -109,6 +109,8 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
   flex-direction: column;
   text-align: left;
   justify-content: space-between;
+  margin-bottom: 0.5px;
+  margin-top: 0.5px;
 
   &.puddle-item {
     background-image: url(${puddle});
@@ -120,7 +122,9 @@ const Item = styled(AnimatedContainer)<{ $darkmode?: boolean }>`
 
   &#contact-item {
     align-self: flex-start;
+    width: 100%;
     border: none;
+    padding: 0;
   }
 
   @media (max-width: 1050px) {
@@ -288,22 +292,24 @@ const Home = ({
         <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
 
         <Item className={styledLoaded} $darkmode={darkMode} />
-        <Item className={styledLoaded} $darkmode={darkMode} id="contact-item">
-          <Subtitle text="CONTACT" />
-          <Button
-            title={t("contact.email")}
-            darkMode={darkMode}
-            onClick={() => {
-              toggleModal();
-              ReactGA.event(clickOnSendMail);
-            }}
-          />
-          <Button
-            title={t("contact.phone")}
-            darkMode={darkMode}
-            href="tel: +33782255092"
-            onClick={() => ReactGA.event(clickOnCall)}
-          />
+        <Item>
+          <Item className={styledLoaded} $darkmode={darkMode} id="contact-item">
+            <Subtitle text="CONTACT" />
+            <Button
+              title={t("contact.email")}
+              darkMode={darkMode}
+              onClick={() => {
+                toggleModal();
+                ReactGA.event(clickOnSendMail);
+              }}
+            />
+            <Button
+              title={t("contact.phone")}
+              darkMode={darkMode}
+              href="tel: +33782255092"
+              onClick={() => ReactGA.event(clickOnCall)}
+            />
+          </Item>
         </Item>
         <Item className={`display ${styledLoaded}`} $darkmode={darkMode} />
       </CustomSection>
