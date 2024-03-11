@@ -89,7 +89,7 @@ function App() {
                 title="Secret Email"
                 background={secretEmail}
                 projet={t("projects.label.pro")}
-                href="https://robingdt.github.io/iExec-Technical-Test/#/authorize?user=0xF048eF3d7E3B33A465E0599E641BB29421f7Df92"
+                href="https://robingdt.github.io/Secret-Email/#/authorize?user=0xF048eF3d7E3B33A465E0599E641BB29421f7Df92"
                 detailText={t("projects.hygo.detail")}
                 contextDetail={t("projects.hygo.context")}
                 stacks={["React", "Typescript", "ViteJs", "iexec library"]}
